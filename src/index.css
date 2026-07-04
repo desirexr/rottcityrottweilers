@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Homepage & beyond (Antigravity dark theme) ── */
+  --background:   #1f1f1f;
+  --surface:      #181818;
+  --text:         #FFFFFF;
+  --text-muted:   #A0A0A0;
+  --primary:      #C39843;
+  --primary-dark: #9E772F;
+  --border:       #333333;
+
+  /* ── Loading screen only — do not use elsewhere ── */
+  --loader-bg:    #070503;
+  --gold:         #D5A32F;
+  --gold-light:   #F0E19B;
+  --gold-dark:    #966C1B;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* ── Loading screen only ── */
+  .gold-gradient {
+    background: linear-gradient(135deg, #966C1B 0%, #D5A32F 40%, #F0E19B 60%, #D5B156 80%, #966C1B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-bar {
+    background: linear-gradient(90deg, #966C1B 0%, #D5A32F 30%, #F0E19B 50%, #D5A32F 70%, #966C1B 100%);
+  }
+
+  /* ── Homepage & beyond ── */
+  .bronze-gradient {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bronze-bar {
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-dark));
+  }
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.4rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 6px 24px rgba(195,152,67,0.3);
+  }
+  .btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2.4rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: #FFFFFF;
+  }
+}
