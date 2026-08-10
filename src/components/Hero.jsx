@@ -154,6 +154,12 @@ export default function Hero() {
           At Rott City Rottweilers, we are dedicated to producing healthy, well-balanced, and structurally sound dogs with exceptional temperaments.
         </p>
 
+        {/* Mobile-only Dog image bust */}
+        <div className="hero-mobile-image">
+          <img src={rottweiler} alt="Champion Rottweiler" className="hero-dog-mobile-img" />
+          <div className="hero-mobile-img-fade" />
+        </div>
+
         {/* CTA Buttons */}
         <div className="hero-cta-row">
           <a href="#dogs" style={{
@@ -176,12 +182,6 @@ export default function Hero() {
           onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--primary)'; e.currentTarget.style.color = '#fff'; }}
           onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--primary)'; }}
           >Available Puppies</a>
-        </div>
-
-        {/* Mobile-only Dog image bust */}
-        <div className="hero-mobile-image">
-          <img src={rottweiler} alt="Champion Rottweiler" className="hero-dog-mobile-img" />
-          <div className="hero-mobile-img-fade" />
         </div>
 
         {/* Stats */}
