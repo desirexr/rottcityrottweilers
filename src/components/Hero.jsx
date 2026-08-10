@@ -86,22 +86,24 @@ export default function Hero() {
             display: block;
             position: relative;
             width: 100%;
-            height: 50vh;
-            min-height: 320px;
-            margin: 0.5rem 0 1.8rem;
+            height: 44vh;
+            min-height: 280px;
+            margin: 1.5rem 0 0;
             overflow: hidden;
           }
           .hero-dog-mobile-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            object-position: bottom center;
+            object-position: center center;
+            transform: scale(2);
+            transform-origin: center center;
           }
           .hero-mobile-img-fade {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background: linear-gradient(to top, var(--background) 0%, rgba(31,31,31,0.2) 10%, transparent 25%);
+            background: linear-gradient(to top, var(--background) 0%, rgba(31,31,31,0.2) 10%, transparent 30%);
           }
           .hero-image-col {
             display: none;
@@ -152,12 +154,6 @@ export default function Hero() {
           At Rott City Rottweilers, we are dedicated to producing healthy, well-balanced, and structurally sound dogs with exceptional temperaments.
         </p>
 
-        {/* Mobile-only Dog image bust */}
-        <div className="hero-mobile-image">
-          <img src={rottweiler} alt="Champion Rottweiler" className="hero-dog-mobile-img" />
-          <div className="hero-mobile-img-fade" />
-        </div>
-
         {/* CTA Buttons */}
         <div className="hero-cta-row">
           <a href="#dogs" style={{
@@ -180,6 +176,12 @@ export default function Hero() {
           onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--primary)'; e.currentTarget.style.color = '#fff'; }}
           onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--primary)'; }}
           >Available Puppies</a>
+        </div>
+
+        {/* Mobile-only Dog image bust */}
+        <div className="hero-mobile-image">
+          <img src={rottweiler} alt="Champion Rottweiler" className="hero-dog-mobile-img" />
+          <div className="hero-mobile-img-fade" />
         </div>
 
         {/* Stats */}
