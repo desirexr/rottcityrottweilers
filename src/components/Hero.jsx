@@ -96,7 +96,7 @@ export default function Hero() {
             height: 100%;
             object-fit: contain;
             object-position: center center;
-            transform: scale(2);
+            transform: scale(1.5);
             transform-origin: center center;
           }
           .hero-mobile-img-fade {
