@@ -1,5 +1,6 @@
 import litterGroup from '../assets/litter-group.png';
 import litterPup from '../assets/litter-pup.jpg';
+import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
 
 export default function Puppies() {
   return (
@@ -317,25 +318,31 @@ export default function Puppies() {
           </a>
         </div>
 
-        {/* ── Past Litter ── */}
+        {/* ── Available Litter ── */}
         <div className="avail-litter">
           <style>{`
+            /* ── Section divider ── */
             .avail-litter {
               border-top: 1px solid var(--border);
               padding-top: clamp(2.5rem, 6vw, 4rem);
               display: flex;
               flex-direction: column;
-              gap: 2rem;
+              gap: 2.5rem;
             }
 
-            /* ── Header ── */
+            /* ── Litter header ── */
+            .avail-header {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              flex-wrap: wrap;
+            }
             .avail-badge {
               display: inline-flex;
               align-items: center;
               gap: 0.4rem;
-              background: rgba(195,152,67,0.15);
-              color: var(--primary);
-              border: 1px solid rgba(195,152,67,0.35);
+              background: var(--primary);
+              color: #fff;
               font-family: "Inter", sans-serif;
               font-size: 0.65rem;
               font-weight: 700;
@@ -349,7 +356,7 @@ export default function Puppies() {
               font-weight: 700;
               font-size: clamp(1.4rem, 5vw, 2rem);
               color: var(--text);
-              margin: 0.75rem 0 0;
+              margin: 0;
               line-height: 1.2;
             }
             .avail-parents {
@@ -358,99 +365,96 @@ export default function Puppies() {
               color: var(--text-muted);
               margin: 0.4rem 0 0;
             }
-            .avail-parents span { color: var(--primary); font-weight: 600; }
+            .avail-parents span {
+              color: var(--primary);
+              font-weight: 600;
+            }
 
-            /* ── Pairing banner ── */
-            .avail-pairing-banner {
+            /* ── Body grid ── */
+            .avail-body {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 2rem;
+              align-items: start;
+            }
+            @media (min-width: 700px) {
+              .avail-body { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+            }
+
+            /* ── Litter photo ── */
+            .avail-img-wrap {
               border-radius: 14px;
-              background: linear-gradient(135deg, rgba(195,152,67,0.12) 0%, rgba(195,152,67,0.04) 100%);
-              border: 1px solid rgba(195,152,67,0.25);
-              padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              flex-wrap: wrap;
-              gap: 1.5rem;
+              overflow: hidden;
+              box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+              position: relative;
             }
-            .avail-pairing-label {
-              font-family: "Inter", sans-serif;
-              font-size: 0.65rem;
-              font-weight: 700;
-              text-transform: uppercase;
-              letter-spacing: 0.2em;
-              color: var(--text-muted);
-              margin: 0 0 0.4rem;
+            .avail-img {
+              width: 100%;
+              height: clamp(240px, 55vw, 420px);
+              object-fit: cover;
+              object-position: center top;
+              display: block;
+              transition: transform 0.5s ease;
             }
-            .avail-pairing-name {
+            .avail-img-wrap:hover .avail-img { transform: scale(1.03); }
+            .avail-pairing-chip {
+              position: absolute;
+              bottom: 0.85rem;
+              left: 0.85rem;
+              background: rgba(0,0,0,0.68);
+              backdrop-filter: blur(8px);
+              border: 1px solid rgba(195,152,67,0.45);
+              border-radius: 8px;
+              padding: 0.4rem 0.8rem;
               font-family: "Cinzel", serif;
-              font-size: clamp(1.2rem, 4vw, 1.7rem);
+              font-size: 0.72rem;
               font-weight: 700;
               color: var(--primary);
-              letter-spacing: 0.04em;
-            }
-            .avail-pairing-bloodlines {
-              font-family: "Inter", sans-serif;
-              font-size: 0.8rem;
-              color: var(--text-muted);
-              margin-top: 0.3rem;
-            }
-            .avail-pairing-divider {
-              font-family: "Cinzel", serif;
-              font-size: 2rem;
-              color: rgba(195,152,67,0.3);
-              flex-shrink: 0;
+              letter-spacing: 0.06em;
             }
 
-            /* ── Info grid ── */
+            /* ── Info cards ── */
+            .avail-info {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+            }
             .avail-info-grid {
               display: grid;
-              grid-template-columns: repeat(2, 1fr);
+              grid-template-columns: 1fr 1fr;
               gap: 0.75rem;
             }
-            @media (min-width: 600px) {
-              .avail-info-grid { grid-template-columns: repeat(4, 1fr); }
-            }
             .avail-info-card {
-              background: var(--surface, #1e1e1e);
+              background: var(--surface, #f9f6f1);
               border: 1px solid var(--border);
               border-radius: 12px;
-              padding: 1rem 1.1rem;
+              padding: 0.9rem 1rem;
             }
             .avail-info-label {
               font-family: "Inter", sans-serif;
-              font-size: 0.58rem;
+              font-size: 0.6rem;
               font-weight: 700;
               text-transform: uppercase;
               letter-spacing: 0.15em;
               color: var(--text-muted);
               display: block;
-              margin-bottom: 0.35rem;
+              margin-bottom: 0.3rem;
             }
             .avail-info-value {
               font-family: "Cinzel", serif;
-              font-size: clamp(0.88rem, 2.5vw, 1rem);
+              font-size: clamp(0.85rem, 2.5vw, 0.95rem);
               font-weight: 700;
               color: var(--text);
               line-height: 1.4;
             }
             .avail-info-value.highlight { color: var(--primary); }
 
-            /* ── Bottom row ── */
-            .avail-bottom {
-              display: grid;
-              grid-template-columns: 1fr;
-              gap: 1.25rem;
-            }
-            @media (min-width: 700px) {
-              .avail-bottom { grid-template-columns: 1fr 1fr; gap: 2rem; }
-            }
-
             /* ── Included list ── */
             .avail-includes {
-              background: var(--surface, #1e1e1e);
+              background: var(--surface, #f9f6f1);
               border: 1px solid var(--border);
               border-radius: 12px;
-              padding: 1.1rem 1.25rem;
+              padding: 1rem 1.1rem;
             }
             .avail-includes-title {
               font-family: "Inter", sans-serif;
@@ -459,14 +463,15 @@ export default function Puppies() {
               text-transform: uppercase;
               letter-spacing: 0.15em;
               color: var(--text-muted);
-              margin: 0 0 0.8rem;
+              margin: 0 0 0.7rem;
             }
             .avail-includes ul {
               list-style: none;
-              padding: 0; margin: 0;
+              padding: 0;
+              margin: 0;
               display: flex;
               flex-direction: column;
-              gap: 0.5rem;
+              gap: 0.45rem;
             }
             .avail-includes li {
               font-family: "Inter", sans-serif;
@@ -485,11 +490,13 @@ export default function Puppies() {
             }
 
             /* ── CTA ── */
-            .avail-cta-wrap {
+            .avail-cta {
               display: flex;
               flex-direction: column;
-              gap: 1rem;
-              justify-content: center;
+              gap: 0.75rem;
+            }
+            @media (min-width: 480px) {
+              .avail-cta { flex-direction: row; }
             }
             .avail-cta-btn {
               font-family: "Inter", sans-serif;
@@ -510,92 +517,75 @@ export default function Puppies() {
               justify-content: center;
               gap: 0.5rem;
               box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+              flex: 1;
             }
             .avail-cta-btn:hover {
               background: var(--primary-dark, #7a0000);
               transform: translateY(-2px);
               box-shadow: 0 8px 28px rgba(0,0,0,0.22);
             }
-            .avail-cta-note {
-              font-family: "Inter", sans-serif;
-              font-size: 0.78rem;
-              color: var(--text-muted);
-              line-height: 1.6;
-              text-align: center;
-            }
-            .avail-cta-note strong {
-              color: var(--primary);
-            }
           `}</style>
 
-          {/* Header */}
+          {/* Litter heading */}
           <div>
-            <span className="avail-badge">📸 Past Litter</span>
-            <h2 className="avail-title">Past Litter: Coco × King Roshi</h2>
+            <div className="avail-header">
+              <span className="avail-badge">🐾 Available Now</span>
+            </div>
+            <h2 className="avail-title" style={{ marginTop: '0.75rem' }}>Current Litter: Coco × King Roshi</h2>
             <p className="avail-parents">
               <span>Coco</span> (German Bloodline) × <span>King Roshi</span> (Serbian Bloodline)
             </p>
           </div>
 
-          {/* Pairing banner */}
-          <div className="avail-pairing-banner">
-            <div>
-              <p className="avail-pairing-label">Dam</p>
-              <div className="avail-pairing-name">Coco</div>
-              <div className="avail-pairing-bloodlines">German Bloodline</div>
+          {/* Body */}
+          <div className="avail-body">
+
+            {/* Photo */}
+            <div className="avail-img-wrap">
+              <img src={cocoRoshiLitter} alt="Coco × King Roshi litter" className="avail-img" />
+              <span className="avail-pairing-chip">Coco × King Roshi</span>
             </div>
-            <div className="avail-pairing-divider">×</div>
-            <div>
-              <p className="avail-pairing-label">Sire</p>
-              <div className="avail-pairing-name">King Roshi</div>
-              <div className="avail-pairing-bloodlines">Serbian Bloodline</div>
+
+            {/* Info */}
+            <div className="avail-info">
+              <div className="avail-info-grid">
+                <div className="avail-info-card">
+                  <span className="avail-info-label">Starting Price</span>
+                  <span className="avail-info-value highlight">$1,500</span>
+                </div>
+                <div className="avail-info-card">
+                  <span className="avail-info-label">Go-Home Age</span>
+                  <span className="avail-info-value">8 Weeks</span>
+                </div>
+                <div className="avail-info-card">
+                  <span className="avail-info-label">Gender</span>
+                  <span className="avail-info-value">Male & Female</span>
+                </div>
+                <div className="avail-info-card">
+                  <span className="avail-info-label">Availability</span>
+                  <span className="avail-info-value">Contact Us</span>
+                </div>
+              </div>
+
+              <div className="avail-includes">
+                <p className="avail-includes-title">What's Included</p>
+                <ul>
+                  <li>Age-appropriate vaccinations</li>
+                  <li>Deworming completed</li>
+                  <li>AKC registration eligible</li>
+                  <li>Health checked before go-home</li>
+                  <li>Pedigree available upon request</li>
+                </ul>
+              </div>
+
+              <div className="avail-cta">
+                <a href="#contact" className="avail-cta-btn">
+                  🐾 Inquire About This Litter
+                </a>
+              </div>
             </div>
+
           </div>
-
-          {/* Info cards */}
-          <div className="avail-info-grid">
-            <div className="avail-info-card">
-              <span className="avail-info-label">Starting Price</span>
-              <span className="avail-info-value highlight">$1,500</span>
-            </div>
-            <div className="avail-info-card">
-              <span className="avail-info-label">Go-Home Age</span>
-              <span className="avail-info-value">8 Weeks</span>
-            </div>
-            <div className="avail-info-card">
-              <span className="avail-info-label">Gender</span>
-              <span className="avail-info-value">Male & Female</span>
-            </div>
-            <div className="avail-info-card">
-              <span className="avail-info-label">Status</span>
-              <span className="avail-info-value">Rehomed</span>
-            </div>
-          </div>
-
-          {/* Bottom: Includes + CTA */}
-          <div className="avail-bottom">
-            <div className="avail-includes">
-              <p className="avail-includes-title">What's Included With Every Litter</p>
-              <ul>
-                <li>Age-appropriate vaccinations</li>
-                <li>Deworming completed</li>
-                <li>AKC registration eligible</li>
-                <li>Health checked before go-home</li>
-                <li>Pedigree available upon request</li>
-              </ul>
-            </div>
-
-            <div className="avail-cta-wrap">
-              <a href="#contact" className="avail-cta-btn">
-                🐾 Inquire About Next Litter
-              </a>
-              <p className="avail-cta-note">
-                New litters arrive <strong>multiple times a year.</strong><br />
-                Get in touch to be added to our waiting list.
-              </p>
-            </div>
-          </div>
-
         </div>
 
       </div>
