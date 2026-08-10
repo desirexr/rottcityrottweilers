@@ -57,10 +57,13 @@ export default function Puppies() {
           border-radius: 12px;
           overflow: hidden;
           box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+          max-width: 480px;
+          margin: 0 auto;
+          aspect-ratio: 4 / 5;
         }
         .pups-group-img {
           width: 100%;
-          height: clamp(200px, 56vw, 520px);
+          height: 100%;
           object-fit: cover;
           object-position: center;
           display: block;
