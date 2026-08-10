@@ -274,7 +274,117 @@ export default function Puppies() {
           </a>
         </div>
 
-        {/* ── Available Litter ── */}
+        {/* ── Current Litter ── */}
+        <div className="current-litter-section">
+          <style>{`
+            .current-litter-section {
+              border-top: 1px solid var(--border);
+              padding-top: clamp(2.5rem, 6vw, 4rem);
+              margin-bottom: clamp(1rem, 3vw, 2rem);
+            }
+            .current-card {
+              background: linear-gradient(135deg, rgba(195,152,67,0.08) 0%, rgba(31,31,31,0.95) 100%);
+              border: 1px solid rgba(195,152,67,0.25);
+              border-radius: 14px;
+              padding: clamp(2rem, 5vw, 3.5rem);
+              text-align: center;
+              box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+              position: relative;
+              overflow: hidden;
+            }
+            .current-card::before {
+              content: '';
+              position: absolute;
+              top: 0; left: 0; right: 0; height: 3px;
+              background: linear-gradient(to right, var(--primary), #dcae5b);
+            }
+            .current-badge-pulse {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              background: rgba(195,152,67,0.15);
+              color: var(--primary);
+              border: 1px solid rgba(195,152,67,0.35);
+              font-family: "Inter", sans-serif;
+              font-size: 0.65rem;
+              font-weight: 700;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              padding: 0.4rem 1rem;
+              border-radius: 20px;
+              margin-bottom: 1.5rem;
+            }
+            .current-badge-pulse::before {
+              content: '';
+              width: 8px;
+              height: 8px;
+              background-color: var(--primary);
+              border-radius: 50%;
+              display: inline-block;
+              box-shadow: 0 0 8px var(--primary);
+              animation: badge-pulse-anim 1.5s infinite;
+            }
+            @keyframes badge-pulse-anim {
+              0% { transform: scale(0.9); opacity: 0.6; }
+              50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px var(--primary); }
+              100% { transform: scale(0.9); opacity: 0.6; }
+            }
+            .current-card-title {
+              font-family: "Cinzel", serif;
+              font-weight: 700;
+              font-size: clamp(1.6rem, 5vw, 2.4rem);
+              color: var(--text);
+              margin: 0 0 1rem;
+              line-height: 1.2;
+            }
+            .current-card-desc {
+              font-family: "Inter", sans-serif;
+              font-size: clamp(0.9rem, 3vw, 1.05rem);
+              color: var(--text-muted);
+              line-height: 1.7;
+              max-width: 600px;
+              margin: 0 auto 2rem;
+            }
+            .current-card-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              font-family: "Inter", sans-serif;
+              font-weight: 700;
+              font-size: 0.85rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              padding: 1.1rem 2.5rem;
+              border-radius: 8px;
+              cursor: pointer;
+              text-decoration: none;
+              transition: all 0.25s ease;
+              background: var(--primary);
+              color: #fff;
+              border: none;
+              box-shadow: 0 6px 20px rgba(122,0,0,0.3);
+            }
+            .current-card-btn:hover {
+              background: var(--primary-dark, #7a0000);
+              transform: translateY(-2px);
+              box-shadow: 0 10px 30px rgba(122,0,0,0.45);
+            }
+          `}</style>
+
+          <div className="current-card">
+            <div className="current-badge-pulse">Current Litter</div>
+            <h3 className="current-card-title">Inquire About Availability</h3>
+            <p className="current-card-desc">
+              We breed selectively to ensure the highest standards of health, temperament, and conformation. 
+              Contact us today to check current availability or join our upcoming waitlist.
+            </p>
+            <a href="#contact" className="current-card-btn">
+              🐾 Check Availability
+            </a>
+          </div>
+        </div>
+
+        {/* ── Past Litter ── */}
         <div className="avail-litter">
           <style>{`
             /* ── Section divider ── */
@@ -485,9 +595,9 @@ export default function Puppies() {
           {/* Litter heading */}
           <div>
             <div className="avail-header">
-              <span className="avail-badge">🐾 Available Now</span>
+              <span className="avail-badge" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--text-muted)' }}>📸 Past Litter</span>
             </div>
-            <h2 className="avail-title" style={{ marginTop: '0.75rem' }}>Current Litter: Coco × King Roshi</h2>
+            <h2 className="avail-title" style={{ marginTop: '0.75rem' }}>Past Litter: Coco × King Roshi</h2>
             <p className="avail-parents">
               <span>Coco</span> (German Bloodline) × <span>King Roshi</span> (Serbian Bloodline)
             </p>
