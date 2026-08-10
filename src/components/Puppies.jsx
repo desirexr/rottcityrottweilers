@@ -1,4 +1,3 @@
-import litterGroup from '../assets/litter-group.png';
 import litterPup from '../assets/litter-pup.jpg';
 import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
 
@@ -266,11 +265,7 @@ export default function Puppies() {
       {/* ── Content ── */}
       <div className="pups-content">
 
-        {/* Group Photo */}
-        <div className="pups-group-img-wrap">
-          <img src={litterGroup} alt="Past litter of Rott City Rottweiler puppies" className="pups-group-img" />
-          <span className="pups-group-badge">📸 Past Litter</span>
-        </div>
+
 
         {/* Writeup + Single Photo */}
         <div className="pups-writeup">
