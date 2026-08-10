@@ -81,7 +81,7 @@ export default function Hero() {
             display: block;
             position: relative;
             width: 100%;
-            height: clamp(300px, 60vw, 420px);
+            height: clamp(360px, 72vw, 504px);
             margin: 0.5rem 0 1.8rem;
             overflow: hidden;
           }
