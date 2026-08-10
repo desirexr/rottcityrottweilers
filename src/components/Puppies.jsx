@@ -86,17 +86,11 @@ export default function Puppies() {
 
         /* ── Writeup ── */
         .pups-writeup {
+          max-width: 750px;
+          margin: 0 auto;
           display: flex;
           flex-direction: column;
           gap: 1.75rem;
-        }
-        @media (min-width: 700px) {
-          .pups-writeup {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-          }
         }
         .pups-writeup-text h3 {
           font-family: "Cinzel", serif;
@@ -146,39 +140,7 @@ export default function Puppies() {
           color: var(--text-muted);
         }
 
-        /* ── Single Pup Photo ── */
-        .pups-single-img-wrap {
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.14);
-          position: relative;
-        }
-        .pups-single-img {
-          width: 100%;
-          height: clamp(260px, 65vw, 420px);
-          object-fit: cover;
-          object-position: center top;
-          display: block;
-          transition: transform 0.6s ease;
-        }
-        .pups-single-img-wrap:hover .pups-single-img { transform: scale(1.04); }
-        .pups-single-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%);
-          pointer-events: none;
-        }
-        .pups-single-caption {
-          position: absolute;
-          bottom: 1rem;
-          left: 0; right: 0;
-          text-align: center;
-          font-family: "Cinzel", serif;
-          font-size: clamp(0.85rem, 4vw, 1.1rem);
-          font-weight: 700;
-          color: #fff;
-          letter-spacing: 0.08em;
-        }
+
 
         /* ── CTA Buttons ── */
         .pups-cta {
@@ -264,10 +226,13 @@ export default function Puppies() {
 
       {/* ── Content ── */}
       <div className="pups-content">
+        {/* Group Photo */}
+        <div className="pups-group-img-wrap">
+          <img src={litterPup} alt="Past litter of Rott City Rottweiler puppies" className="pups-group-img" />
+          <span className="pups-group-badge">📸 Past Litter</span>
+        </div>
 
-
-
-        {/* Writeup + Single Photo */}
+        {/* Writeup */}
         <div className="pups-writeup">
           <div className="pups-writeup-text">
             <h3>Excellence Starts at Birth</h3>
@@ -293,13 +258,6 @@ export default function Puppies() {
                 <span className="pups-stat-label">Health Checked</span>
               </div>
             </div>
-          </div>
-
-          {/* Single Pup Photo */}
-          <div className="pups-single-img-wrap">
-            <img src={litterPup} alt="Rott City Rottweiler puppy" className="pups-single-img" />
-            <div className="pups-single-overlay" />
-            <span className="pups-single-caption">Rott City Quality</span>
           </div>
         </div>
 
