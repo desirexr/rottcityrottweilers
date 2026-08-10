@@ -76,12 +76,18 @@ export default function Hero() {
         .hero-mobile-image {
           display: none;
         }
+        .hero-cta-row {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
         @media (max-width: 900px) {
           .hero-mobile-image {
             display: block;
             position: relative;
             width: 100%;
-            height: clamp(360px, 72vw, 504px);
+            height: 50vh;
+            min-height: 320px;
             margin: 0.5rem 0 1.8rem;
             overflow: hidden;
           }
@@ -99,6 +105,14 @@ export default function Hero() {
           }
           .hero-image-col {
             display: none;
+          }
+          .hero-cta-row {
+            flex-wrap: nowrap;
+          }
+          .hero-cta-row a {
+            font-size: 0.72rem !important;
+            padding: 0.75rem 1.2rem !important;
+            white-space: nowrap;
           }
         }
         @media (max-width: 480px) {
@@ -145,7 +159,7 @@ export default function Hero() {
         </div>
 
         {/* CTA Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <div className="hero-cta-row">
           <a href="#dogs" style={{
             fontFamily: '"Inter", sans-serif', fontWeight: 600, fontSize: '0.8rem',
             textTransform: 'uppercase', letterSpacing: '0.1em',
