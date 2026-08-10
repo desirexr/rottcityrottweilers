@@ -644,11 +644,7 @@ export default function Puppies() {
                 </ul>
               </div>
 
-              <div className="avail-cta">
-                <a href="#contact" className="avail-cta-btn">
-                  🐾 Inquire About This Litter
-                </a>
-              </div>
+
             </div>
 
           </div>
