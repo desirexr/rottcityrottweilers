@@ -1,4 +1,5 @@
 import aboutRott from '../assets/about-rott.png';
+import dogMap from '../assets/dog-map.jpg';
 
 const BULLETS = [
   'Health, structure & temperament focused',
@@ -33,6 +34,50 @@ export default function About() {
           .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
           .about-images { height: auto; aspect-ratio: 4/3; }
           .about-stats { gap: 1.5rem; flex-wrap: wrap; }
+        }
+        .about-map-container {
+          margin-top: clamp(3rem, 8vw, 5.5rem);
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+          border-top: 1px solid var(--border);
+          padding-top: clamp(2.5rem, 6vw, 4rem);
+        }
+        .about-map-header {
+          text-align: center;
+          margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        .about-map-title {
+          font-family: "Cinzel", serif;
+          font-weight: 700;
+          font-size: clamp(1.4rem, 4vw, 2.2rem);
+          color: var(--text);
+          margin: 0 0 0.75rem;
+          letter-spacing: -0.01em;
+        }
+        .about-map-subtitle {
+          font-family: "Inter", sans-serif;
+          font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+          color: var(--text-muted);
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+        .about-map-wrapper {
+          border-radius: 14px;
+          overflow: hidden;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+          border: 1px solid rgba(195,152,67,0.2);
+          background: #0A0A0A;
+          transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .about-map-wrapper:hover {
+          border-color: rgba(195,152,67,0.35);
+        }
+        .about-map-img {
+          width: 100%;
+          height: auto;
+          display: block;
         }
       `}</style>
 
@@ -80,6 +125,19 @@ export default function About() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="about-map-container">
+        <div className="about-map-header">
+          <h3 className="about-map-title">Everywhere They Call Home</h3>
+          <p className="about-map-subtitle">
+            From our Georgia program to loving homes across the nation, Rott City dogs bring excellence, protection, and companionship to families coast to coast.
+          </p>
+        </div>
+        <div className="about-map-wrapper">
+          <img src={dogMap} alt="Map of Rott City dogs across the USA" className="about-map-img" />
         </div>
       </div>
     </section>
