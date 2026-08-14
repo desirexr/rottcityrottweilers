@@ -37,7 +37,7 @@ export default function About() {
         }
         .about-map-container {
           margin-top: clamp(3rem, 8vw, 5.5rem);
-          max-width: 1200px;
+          max-width: 960px;
           margin-left: auto;
           margin-right: auto;
           border-top: 1px solid var(--border);
@@ -78,6 +78,8 @@ export default function About() {
           width: 100%;
           height: auto;
           display: block;
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
         }
       `}</style>
 
