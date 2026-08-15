@@ -58,7 +58,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" style={{ backgroundColor: "#0A0A0A", padding: "clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,5rem)" }}>
+    <section id="services" style={{ backgroundColor: "var(--background)", padding: "clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,5rem)" }}>
       <style>{`
         .services-header { text-align: center; margin-bottom: 4rem; }
         .services-grid {

@@ -66,7 +66,7 @@ export const DOGS = [
 
 export default function Dogs({ onViewProfile }) {
   return (
-    <section id="dogs" style={{ backgroundColor: '#0A0A0A', padding: 'clamp(4rem,8vw,7rem) 0', overflowX: 'hidden' }}>
+    <section id="dogs" style={{ backgroundColor: 'var(--background)', padding: 'clamp(4rem,8vw,7rem) 0', overflowX: 'hidden' }}>
       <style>{`
         /* ── Dogs section ─────────────────────────────── */
         .dogs-header {

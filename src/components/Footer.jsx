@@ -11,7 +11,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ backgroundColor: '#0A0A0A', borderTop: '1px solid rgba(255,255,255,0.08)', padding: '5rem clamp(1.5rem,5vw,5rem) 2rem' }}>
+    <footer style={{ backgroundColor: 'var(--background)', borderTop: '1px solid rgba(255,255,255,0.08)', padding: '5rem clamp(1.5rem,5vw,5rem) 2rem' }}>
       <style>{`
         .footer-grid {
           display: grid;

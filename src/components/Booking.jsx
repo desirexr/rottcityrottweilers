@@ -116,7 +116,7 @@ export default function Booking() {
     <section
       id="booking"
       style={{
-        backgroundColor: '#0A0A0A',
+        backgroundColor: 'var(--background)',
         padding: 'clamp(3rem,8vw,7rem) clamp(1rem,5vw,5rem)',
         overflowX: 'hidden',
       }}

@@ -56,7 +56,7 @@ export default function Photoshoots() {
   return (
     <section
       id="photoshoots"
-      style={{ backgroundColor: '#0A0A0A', padding: 'clamp(3rem,8vw,7rem) clamp(1rem,5vw,5rem)' }}
+      style={{ backgroundColor: 'var(--background)', padding: 'clamp(3rem,8vw,7rem) clamp(1rem,5vw,5rem)' }}
     >
       <style>{`
         /* ── Header ── */
