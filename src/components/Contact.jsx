@@ -4,14 +4,41 @@ import silhouette from '../assets/silhouette.png';
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: '', email: '', phone: '', subject: '', message: '' });
-    }, 3000);
+    setSubmitting(true);
+    setError(false);
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/rottcityllc@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone || 'Not provided',
+          subject: form.subject,
+          message: form.message,
+          _subject: `New Puppy Inquiry from ${form.name}`,
+          _captcha: 'false',
+        }),
+      });
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        setSubmitted(true);
+        setForm({ name: '', email: '', phone: '', subject: '', message: '' });
+        setTimeout(() => setSubmitted(false), 6000);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -130,7 +157,12 @@ export default function Contact() {
           <div className="contact-form-card">
             {submitted && (
               <div className="success-banner">
-                Thank you! Your inquiry has been sent successfully. We will get back to you shortly.
+                ✅ Thank you! Your inquiry has been sent. We will get back to you shortly.
+              </div>
+            )}
+            {error && (
+              <div className="success-banner" style={{ backgroundColor: 'rgba(200,50,50,0.1)', borderColor: '#c83232', color: '#ff6b6b' }}>
+                ⚠️ Something went wrong. Please email us directly at <strong>rottcityllc@gmail.com</strong>
               </div>
             )}
             <form onSubmit={handleSubmit}>
@@ -198,10 +230,11 @@ export default function Contact() {
 
               <button
                 type="submit"
+                disabled={submitting}
                 className="btn-primary"
-                style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'block', textAlign: 'center' }}
+                style={{ width: '100%', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', display: 'block', textAlign: 'center', opacity: submitting ? 0.7 : 1, transition: 'opacity 0.2s' }}
               >
-                Submit Inquiry
+                {submitting ? 'Sending…' : 'Submit Inquiry'}
               </button>
             </form>
           </div>
