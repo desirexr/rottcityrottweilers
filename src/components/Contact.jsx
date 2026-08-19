@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import silhouette from '../assets/silhouette.png';
 
+// ── Web3Forms ────────────────────────────────────────────────────────────────
+// Get a free access key at https://web3forms.com
+// Enter rottcityllc@gmail.com → they email you the key → paste it below.
+// The key is NOT a password — it is safe to leave it in the code.
+const WEB3FORMS_KEY = 'b5deddf7-db2f-408f-aa72-2c61df9c984d';
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -13,21 +20,21 @@ export default function Contact() {
     setError(false);
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/rottcityllc@gmail.com', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
           name: form.name,
           email: form.email,
           phone: form.phone || 'Not provided',
-          subject: form.subject,
+          subject: `New Puppy Inquiry from ${form.name} — ${form.subject}`,
           message: form.message,
-          _subject: `New Puppy Inquiry from ${form.name}`,
-          _captcha: 'false',
+          botcheck: '',
         }),
       });
       const data = await res.json();
-      if (data.success === 'true' || data.success === true) {
+      if (data.success) {
         setSubmitted(true);
         setForm({ name: '', email: '', phone: '', subject: '', message: '' });
         setTimeout(() => setSubmitted(false), 6000);
