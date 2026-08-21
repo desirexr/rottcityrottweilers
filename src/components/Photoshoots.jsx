@@ -147,7 +147,7 @@ export default function Photoshoots() {
         /* ── Header ── */
         .ps-header {
           text-align: center;
-          max-width: 720px;
+          max-width: 840px;
           margin: 0 auto clamp(2.5rem, 5vw, 4rem);
           padding: 0 0.5rem;
         }
@@ -532,10 +532,23 @@ export default function Photoshoots() {
         <p className="ps-eyebrow">Rott City Rottweilers</p>
         <h2 className="ps-title">Photo & Video Shoots</h2>
         <div className="ps-divider" />
-        <p className="ps-subtitle">
-          Book our world-class, champion-line Rottweilers for professional photo shoots,
-          music videos, film productions, commercial advertising, and editorial media.
+        <p className="ps-subtitle" style={{ marginBottom: '1.25rem' }}>
+          Our trained Rottweilers are available for professional photo shoots, music videos, commercials, promotional content, and other productions. Depending on the dog, they can perform trained behaviors on command, including sit, stay, positioning, controlled movement, and barking on command. A handler will be present to help safely position and manage the dogs throughout the shoot.
         </p>
+        <div style={{
+          display: 'inline-block',
+          marginTop: '0.5rem',
+          padding: '0.65rem 1.25rem',
+          background: 'rgba(195,152,67,0.12)',
+          border: '1px solid rgba(195,152,67,0.35)',
+          borderRadius: '30px',
+          fontFamily: '"Inter", sans-serif',
+          fontSize: '0.88rem',
+          fontWeight: 600,
+          color: 'var(--primary)',
+        }}>
+          📷 We can also provide a professional photographer for an additional fee.
+        </div>
       </div>
 
       {/* ── Image Showcase Slider ── */}
