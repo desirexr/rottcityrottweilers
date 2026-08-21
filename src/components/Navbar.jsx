@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: 'Reservations', href: '#booking' },
   { label: 'Training', href: '#training' },
   { label: 'Stud Services', href: '#stud-services' },
-  { label: 'Photoshoots', href: '#photoshoots' },
+  { label: 'Photo & Video', href: '#photoshoots' },
   { label: 'Services', href: '#services' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact Us', href: '#contact' },
