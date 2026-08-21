@@ -1,12 +1,18 @@
 import { useState, useEffect, useCallback } from 'react';
-import photo1 from '../assets/photoshoot-1.jpg';
-import photo2 from '../assets/photoshoot-2.jpg';
-import photo3 from '../assets/photoshoot-3.jpg';
+import photo1 from '../assets/photoshoot-new-1.jpg';
+import photo2 from '../assets/photoshoot-new-2.jpg';
+import photo3 from '../assets/photoshoot-new-3.jpg';
+import photo4 from '../assets/photoshoot-new-4.jpg';
+import photo5 from '../assets/photoshoot-new-5.jpg';
+import photo6 from '../assets/photoshoot-new-6.jpg';
 
 const PHOTOS = [
-  { src: photo1, alt: 'Rott City Rottweilers Photo & Video Shoot' },
-  { src: photo2, alt: 'Rott City Rottweilers Commercial Production' },
-  { src: photo3, alt: 'Rott City Rottweilers Film & Media Session' },
+  { src: photo1, title: 'Night Classic Car Shoot', alt: 'Rott City Rottweilers Night Shoot with Classic Car' },
+  { src: photo2, title: 'Car Doorway Portrait', alt: 'Rott City Rottweilers Seated Car Shoot' },
+  { src: photo3, title: 'Studio & Lighting Portrait', alt: 'Rott City Rottweilers On-Set Portrait' },
+  { src: photo4, title: 'Tunnel Production Feature', alt: 'Rott City Rottweilers Tunnel Production' },
+  { src: photo5, title: 'City Street Lifestyle', alt: 'Rott City Rottweilers City Lifestyle Session' },
+  { src: photo6, title: 'Times Square Night Shoot', alt: 'Rott City Rottweilers Times Square Crosswalk Shoot' },
 ];
 
 const PRICING_TIERS = [
@@ -177,23 +183,29 @@ export default function Photoshoots() {
         .ps-subtitle {
           font-family: "Inter", sans-serif;
           font-size: clamp(0.9rem, 2.5vw, 1.05rem);
-          color: rgba(255,255,255,0.65);
+          color: rgba(255,255,255,0.7);
           line-height: 1.7;
           margin: 0;
         }
 
-        /* ── Slider ── */
-        .ps-slider-wrap {
-          max-width: 680px;
+        /* ── Uncropped Gallery Showcase ── */
+        .ps-gallery-container {
+          max-width: 760px;
           margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+        }
+
+        .ps-slider-wrap {
           position: relative;
           border-radius: 20px;
           overflow: hidden;
           box-shadow:
-            0 0 0 1px rgba(195,152,67,0.25),
-            0 30px 80px rgba(0,0,0,0.7);
-          background: #000;
-          aspect-ratio: 16/10;
+            0 0 0 1px rgba(195,152,67,0.3),
+            0 30px 80px rgba(0,0,0,0.85);
+          background: #080808;
+          height: clamp(480px, 70vh, 680px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         /* Slides */
@@ -201,29 +213,29 @@ export default function Photoshoots() {
           position: absolute;
           inset: 0;
           opacity: 0;
-          transform: scale(1.04);
-          transition: opacity 0.42s ease, transform 0.42s ease;
+          transition: opacity 0.45s ease;
           pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem;
+          background: radial-gradient(circle at center, rgba(30,30,30,0.6) 0%, rgba(5,5,5,0.95) 100%);
         }
         .ps-slide.active {
           opacity: 1;
-          transform: scale(1);
           pointer-events: auto;
         }
-        .ps-slide.active .ps-slide-img {
-          animation: kenburns 8s ease-in-out forwards;
-        }
-        @keyframes kenburns {
-          from { transform: scale(1.03); }
-          to   { transform: scale(1.1); }
-        }
+        
+        /* UNCROPPED Image styling - object-fit: contain guarantees NO cropping */
         .ps-slide-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
-          display: block;
-          filter: brightness(1.05) contrast(1.08);
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          border-radius: 8px;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+          filter: brightness(1.04) contrast(1.05);
         }
 
         /* ── Arrow buttons ── */
@@ -232,49 +244,72 @@ export default function Photoshoots() {
           top: 50%;
           transform: translateY(-50%);
           z-index: 20;
-          width: 44px; height: 44px;
+          width: 48px; height: 48px;
           border-radius: 50%;
-          border: 1.5px solid rgba(195,152,67,0.5);
-          background: rgba(0,0,0,0.6);
-          backdrop-filter: blur(10px);
+          border: 1.5px solid rgba(195,152,67,0.6);
+          background: rgba(0,0,0,0.75);
+          backdrop-filter: blur(12px);
           color: var(--primary);
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           cursor: pointer;
           display: flex; align-items: center; justify-content: center;
-          transition: all 0.2s;
-        }
-        .ps-arrow:hover {
-          background: rgba(195,152,67,0.25);
-          border-color: var(--primary);
-          transform: translateY(-50%) scale(1.08);
-        }
-        .ps-arrow.left  { left: 1rem; }
-        .ps-arrow.right { right: 1rem; }
-
-        /* ── Dot nav ── */
-        .ps-dots {
-          position: absolute;
-          bottom: 1rem;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 20;
-          display: flex;
-          gap: 0.55rem;
-          align-items: center;
-        }
-        .ps-dot {
-          width: 8px; height: 8px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.4);
-          border: none;
-          cursor: pointer;
-          padding: 0;
           transition: all 0.25s;
         }
-        .ps-dot.active {
-          background: var(--primary);
-          width: 24px;
-          border-radius: 4px;
+        .ps-arrow:hover {
+          background: rgba(195,152,67,0.3);
+          border-color: var(--primary);
+          transform: translateY(-50%) scale(1.1);
+        }
+        .ps-arrow.left  { left: 1.25rem; }
+        .ps-arrow.right { right: 1.25rem; }
+
+        @media (max-width: 480px) {
+          .ps-arrow { width: 38px; height: 38px; font-size: 1.1rem; }
+          .ps-arrow.left  { left: 0.6rem; }
+          .ps-arrow.right { right: 0.6rem; }
+        }
+
+        /* ── Thumbnails Strip ── */
+        .ps-thumbs {
+          display: flex;
+          gap: 0.75rem;
+          justify-content: center;
+          align-items: center;
+          margin-top: 1.25rem;
+          overflow-x: auto;
+          padding: 0.5rem;
+        }
+
+        .ps-thumb-btn {
+          width: 60px;
+          height: 75px;
+          border-radius: 8px;
+          overflow: hidden;
+          border: 2px solid rgba(255,255,255,0.15);
+          background: #000;
+          cursor: pointer;
+          padding: 0;
+          opacity: 0.5;
+          transition: all 0.25s ease;
+          flex-shrink: 0;
+        }
+
+        .ps-thumb-btn:hover {
+          opacity: 0.85;
+          border-color: rgba(195,152,67,0.6);
+        }
+
+        .ps-thumb-btn.active {
+          opacity: 1;
+          border-color: var(--primary);
+          box-shadow: 0 0 15px rgba(195,152,67,0.4);
+          transform: scale(1.05);
+        }
+
+        .ps-thumb-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         /* ── Pricing Tiers Grid ── */
@@ -551,25 +586,31 @@ export default function Photoshoots() {
         </div>
       </div>
 
-      {/* ── Image Showcase Slider ── */}
-      <div className="ps-slider-wrap">
-        {PHOTOS.map((p, i) => (
-          <div key={i} className={`ps-slide${i === active ? ' active' : ''}`}>
-            <img src={p.src} alt={p.alt} className="ps-slide-img" />
-          </div>
-        ))}
-        <button className="ps-arrow left" onClick={prev} aria-label="Previous image">‹</button>
-        <button className="ps-arrow right" onClick={next} aria-label="Next image">›</button>
-        <div className="ps-dots" role="tablist">
-          {PHOTOS.map((_, i) => (
+      {/* ── Uncropped Gallery Showcase Slider ── */}
+      <div className="ps-gallery-container">
+        <div className="ps-slider-wrap">
+          {PHOTOS.map((p, i) => (
+            <div key={i} className={`ps-slide${i === active ? ' active' : ''}`}>
+              <img src={p.src} alt={p.alt} className="ps-slide-img" />
+            </div>
+          ))}
+          <button className="ps-arrow left" onClick={prev} aria-label="Previous image">‹</button>
+          <button className="ps-arrow right" onClick={next} aria-label="Next image">›</button>
+        </div>
+
+        {/* Thumbnail selector strip */}
+        <div className="ps-thumbs" role="tablist">
+          {PHOTOS.map((p, i) => (
             <button
               key={i}
               role="tab"
               aria-selected={i === active}
-              className={`ps-dot${i === active ? ' active' : ''}`}
+              aria-label={`Photo ${i + 1}: ${p.title}`}
+              className={`ps-thumb-btn${i === active ? ' active' : ''}`}
               onClick={() => goTo(i, i > active ? 'next' : 'prev')}
-              aria-label={`Slide ${i + 1}`}
-            />
+            >
+              <img src={p.src} alt={p.title} className="ps-thumb-img" />
+            </button>
           ))}
         </div>
       </div>
