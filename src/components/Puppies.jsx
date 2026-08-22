@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import litterPup from '../assets/litter-pup.jpg';
+import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
 import pup1 from '../assets/puppy-new-1.jpg';
 import pup2 from '../assets/puppy-new-2.jpg';
 import pup3 from '../assets/puppy-new-3.jpg';
