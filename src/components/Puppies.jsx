@@ -94,11 +94,14 @@ export default function Puppies() {
           position: relative;
           border-radius: 14px;
           overflow: hidden;
-          box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-          border: 1px solid rgba(195,152,67,0.25);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+          border: 1px solid rgba(195,152,67,0.3);
           width: 100%;
-          aspect-ratio: 4 / 5;
-          background: #0d0d0d;
+          height: clamp(340px, 60vw, 540px);
+          background: #080808;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .pups-slide {
           position: absolute;
@@ -106,17 +109,24 @@ export default function Puppies() {
           opacity: 0;
           transition: opacity 0.5s ease-in-out;
           pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.5rem;
         }
         .pups-slide.active {
           opacity: 1;
           pointer-events: auto;
         }
         .pups-group-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
           object-position: center;
           display: block;
+          border-radius: 8px;
         }
         .pups-arrow {
           position: absolute;
@@ -568,14 +578,21 @@ export default function Puppies() {
             .avail-img-wrap {
               border-radius: 14px;
               overflow: hidden;
-              box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+              box-shadow: 0 12px 40px rgba(0,0,0,0.2);
               position: relative;
+              background: #080808;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: clamp(280px, 55vw, 440px);
             }
             .avail-img {
-              width: 100%;
-              height: clamp(240px, 55vw, 420px);
-              object-fit: cover;
-              object-position: center top;
+              max-width: 100%;
+              max-height: 100%;
+              width: auto;
+              height: auto;
+              object-fit: contain;
+              object-position: center;
               display: block;
               transition: transform 0.5s ease;
             }
