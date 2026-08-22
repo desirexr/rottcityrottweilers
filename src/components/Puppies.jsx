@@ -2,9 +2,17 @@ import { useState, useEffect, useCallback } from 'react';
 import litterPup from '../assets/litter-pup.jpg';
 import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
 import litterGroup from '../assets/litter-group.png';
+import pup1 from '../assets/puppy-new-1.jpg';
+import pup2 from '../assets/puppy-new-2.jpg';
+import pup3 from '../assets/puppy-new-3.jpg';
+import pup4 from '../assets/puppy-new-4.jpg';
 
 const PUPPY_SLIDES = [
   { src: litterPup, alt: 'Rott City Rottweilers Past Litter', badge: '📸 Past Litter' },
+  { src: pup1, alt: 'Rott City Puppy Close-up Portrait', badge: '📸 Puppy Portrait' },
+  { src: pup2, alt: 'Rott City Outdoor Puppy Stance', badge: '📸 Outdoor Stance' },
+  { src: pup3, alt: 'Rott City Puppy Sitting Portrait', badge: '📸 Puppy Feature' },
+  { src: pup4, alt: 'Rott City Puppy Working Harness', badge: '📸 Working Harness' },
   { src: cocoRoshiLitter, alt: 'Coco × King Roshi Litter', badge: '📸 Coco × King Roshi' },
   { src: litterGroup, alt: 'Rott City Puppy Group', badge: '📸 Litter Group' },
 ];
