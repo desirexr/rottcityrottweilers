@@ -1,7 +1,32 @@
+import { useState, useEffect, useCallback } from 'react';
 import litterPup from '../assets/litter-pup.jpg';
 import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
+import litterGroup from '../assets/litter-group.png';
+
+const PUPPY_SLIDES = [
+  { src: litterPup, alt: 'Rott City Rottweilers Past Litter', badge: '📸 Past Litter' },
+  { src: cocoRoshiLitter, alt: 'Coco × King Roshi Litter', badge: '📸 Coco × King Roshi' },
+  { src: litterGroup, alt: 'Rott City Puppy Group', badge: '📸 Litter Group' },
+];
 
 export default function Puppies() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setActiveSlide(prev => (prev + 1) % PUPPY_SLIDES.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setActiveSlide(prev => (prev - 1 + PUPPY_SLIDES.length) % PUPPY_SLIDES.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <section id="puppies" style={{ backgroundColor: 'var(--background)' }}>
       <style>{`
@@ -51,15 +76,32 @@ export default function Puppies() {
           gap: clamp(2rem, 6vw, 3.5rem);
         }
 
-        /* ── Group Photo ── */
+        /* ── Group Photo / Slideshow ── */
+        .pups-slider-container {
+          max-width: 520px;
+          margin: 0 auto;
+          width: 100%;
+        }
         .pups-group-img-wrap {
           position: relative;
-          border-radius: 12px;
+          border-radius: 14px;
           overflow: hidden;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-          max-width: 480px;
-          margin: 0 auto;
+          box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+          border: 1px solid rgba(195,152,67,0.25);
+          width: 100%;
           aspect-ratio: 4 / 5;
+          background: #0d0d0d;
+        }
+        .pups-slide {
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+          pointer-events: none;
+        }
+        .pups-slide.active {
+          opacity: 1;
+          pointer-events: auto;
         }
         .pups-group-img {
           width: 100%;
@@ -67,9 +109,58 @@ export default function Puppies() {
           object-fit: cover;
           object-position: center;
           display: block;
-          transition: transform 0.6s ease;
         }
-        .pups-group-img-wrap:hover .pups-group-img { transform: scale(1.03); }
+        .pups-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0,0,0,0.65);
+          backdrop-filter: blur(6px);
+          color: #fff;
+          border: 1px solid rgba(255,255,255,0.2);
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 1.4rem;
+          line-height: 1;
+          transition: all 0.2s ease;
+          z-index: 10;
+        }
+        .pups-arrow:hover {
+          background: var(--primary);
+          border-color: var(--primary);
+          color: #fff;
+          transform: translateY(-50%) scale(1.08);
+        }
+        .pups-arrow.left { left: 0.75rem; }
+        .pups-arrow.right { right: 0.75rem; }
+
+        .pups-dots {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          margin-top: 1rem;
+        }
+        .pups-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.25);
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          padding: 0;
+        }
+        .pups-dot.active {
+          background: var(--primary);
+          width: 24px;
+          border-radius: 12px;
+        }
         .pups-group-badge {
           position: absolute;
           bottom: 0.75rem;
@@ -229,10 +320,28 @@ export default function Puppies() {
 
       {/* ── Content ── */}
       <div className="pups-content">
-        {/* Group Photo */}
-        <div className="pups-group-img-wrap">
-          <img src={litterPup} alt="Past litter of Rott City Rottweiler puppies" className="pups-group-img" />
-          <span className="pups-group-badge">📸 Past Litter</span>
+        {/* Group Photo Slideshow */}
+        <div className="pups-slider-container">
+          <div className="pups-group-img-wrap">
+            {PUPPY_SLIDES.map((slide, idx) => (
+              <div key={idx} className={`pups-slide${idx === activeSlide ? ' active' : ''}`}>
+                <img src={slide.src} alt={slide.alt} className="pups-group-img" />
+                <span className="pups-group-badge">{slide.badge}</span>
+              </div>
+            ))}
+            <button className="pups-arrow left" onClick={prevSlide} aria-label="Previous photo">‹</button>
+            <button className="pups-arrow right" onClick={nextSlide} aria-label="Next photo">›</button>
+          </div>
+          <div className="pups-dots">
+            {PUPPY_SLIDES.map((_, idx) => (
+              <button
+                key={idx}
+                className={`pups-dot${idx === activeSlide ? ' active' : ''}`}
+                onClick={() => setActiveSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Writeup */}
