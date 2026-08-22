@@ -3,6 +3,7 @@ import enzo     from '../assets/dog-enzo.jpg';
 import coco     from '../assets/dog-coco.jpg';
 import biggie   from '../assets/dog-biggie.jpg';
 import melo     from '../assets/dog-melo.jpg';
+import kingCreed from '../assets/dog-king-creed.jpg';
 
 export const DOGS = [
   {
@@ -61,6 +62,16 @@ export const DOGS = [
     temperament: ['Confident', 'Stable', 'Athletic'],
     flag: '🇩🇪',
     img: melo,
+  },
+  {
+    id: 'king-creed',
+    name: 'King Creed',
+    bloodline: 'German',
+    gender: 'Male',
+    description: 'Dark mahogany markings, athletic build. Highly protective and dominant with a high prey drive.',
+    temperament: ['Protective', 'Dominant', 'Athletic', 'High Prey Drive'],
+    flag: '🇩🇪',
+    img: kingCreed,
   },
 ];
 
