@@ -22,17 +22,17 @@ export default function About() {
           display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto;
         }
         .about-images {
-          border-radius: 14px; overflow: hidden; height: 520px;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.14);
-        }
-        .about-img-placeholder {
-          border-radius: 8px; overflow: hidden; background-color: var(--surface);
-          border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+          border-radius: 14px;
+          overflow: hidden;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+          border: 1px solid rgba(195,152,67,0.25);
+          max-width: 520px;
+          margin: 0 auto;
+          width: 100%;
         }
         .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
         @media (max-width: 900px) {
           .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-          .about-images { height: auto; aspect-ratio: 4/3; }
           .about-stats { gap: 1.5rem; flex-wrap: wrap; }
         }
         .about-map-container {
@@ -88,8 +88,8 @@ export default function About() {
         <div className="about-images">
           <img
             src={aboutRott}
-            alt="Mature Rottweiler — Rott City"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+            alt="Rott City Rottweiler"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
 
