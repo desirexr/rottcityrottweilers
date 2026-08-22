@@ -1,4 +1,4 @@
-import aboutRott from '../assets/about-rott.png';
+import aboutRott from '../assets/about-us-dog.jpg';
 import dogMap from '../assets/dog-map.jpg';
 
 const BULLETS = [
