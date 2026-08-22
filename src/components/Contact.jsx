@@ -228,7 +228,7 @@ export default function Contact() {
                   required
                   rows="5"
                   className="form-input"
-                  placeholder="Tell us about your home environment, experience with working breeds, and what puppy you are interested in..."
+                  placeholder="Tell us what you’re interested in and how we can assist you. If you’re inquiring about a puppy, please include your preferred gender, bloodline, and desired timeframe."
                   style={{ resize: 'vertical' }}
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
