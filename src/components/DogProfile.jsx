@@ -374,10 +374,12 @@ export default function DogProfile({ dog, onClose }) {
                 <span className="dp-stat-value">{dog.gender}</span>
               </div>
             )}
-            <div className="dp-stat">
-              <span className="dp-stat-label">Weight</span>
-              <span className="dp-stat-value">{dog.weight}</span>
-            </div>
+            {dog.weight && (
+              <div className="dp-stat">
+                <span className="dp-stat-label">Weight</span>
+                <span className="dp-stat-value">{dog.weight}</span>
+              </div>
+            )}
             {dog.age && (
               <div className="dp-stat">
                 <span className="dp-stat-label">Age</span>
