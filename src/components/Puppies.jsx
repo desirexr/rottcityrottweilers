@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import litterPup from '../assets/litter-pup.jpg';
-import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
-import litterGroup from '../assets/litter-group.png';
 import pup1 from '../assets/puppy-new-1.jpg';
 import pup2 from '../assets/puppy-new-2.jpg';
 import pup3 from '../assets/puppy-new-3.jpg';
@@ -13,8 +11,6 @@ const PUPPY_SLIDES = [
   { src: pup2, alt: 'Rott City Outdoor Puppy Stance', badge: '📸 Outdoor Stance' },
   { src: pup3, alt: 'Rott City Puppy Sitting Portrait', badge: '📸 Puppy Feature' },
   { src: pup4, alt: 'Rott City Puppy Working Harness', badge: '📸 Working Harness' },
-  { src: cocoRoshiLitter, alt: 'Coco × King Roshi Litter', badge: '📸 Coco × King Roshi' },
-  { src: litterGroup, alt: 'Rott City Puppy Group', badge: '📸 Litter Group' },
 ];
 
 export default function Puppies() {
@@ -86,7 +82,7 @@ export default function Puppies() {
 
         /* ── Group Photo / Slideshow ── */
         .pups-slider-container {
-          max-width: 520px;
+          max-width: 480px;
           margin: 0 auto;
           width: 100%;
         }
@@ -94,14 +90,11 @@ export default function Puppies() {
           position: relative;
           border-radius: 14px;
           overflow: hidden;
-          box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.35);
           border: 1px solid rgba(195,152,67,0.3);
           width: 100%;
-          height: clamp(340px, 60vw, 540px);
-          background: #080808;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          aspect-ratio: 4 / 5;
+          background: #111;
         }
         .pups-slide {
           position: absolute;
@@ -109,24 +102,17 @@ export default function Puppies() {
           opacity: 0;
           transition: opacity 0.5s ease-in-out;
           pointer-events: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0.5rem;
         }
         .pups-slide.active {
           opacity: 1;
           pointer-events: auto;
         }
         .pups-group-img {
-          max-width: 100%;
-          max-height: 100%;
-          width: auto;
-          height: auto;
-          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           object-position: center;
           display: block;
-          border-radius: 8px;
         }
         .pups-arrow {
           position: absolute;
@@ -578,21 +564,14 @@ export default function Puppies() {
             .avail-img-wrap {
               border-radius: 14px;
               overflow: hidden;
-              box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+              box-shadow: 0 12px 40px rgba(0,0,0,0.18);
               position: relative;
-              background: #080808;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              height: clamp(280px, 55vw, 440px);
             }
             .avail-img {
-              max-width: 100%;
-              max-height: 100%;
-              width: auto;
-              height: auto;
-              object-fit: contain;
-              object-position: center;
+              width: 100%;
+              height: clamp(240px, 55vw, 420px);
+              object-fit: cover;
+              object-position: center top;
               display: block;
               transition: transform 0.5s ease;
             }
