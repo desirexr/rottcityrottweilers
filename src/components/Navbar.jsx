@@ -14,12 +14,13 @@ const NAV_ITEMS = [
       { label: 'Stud Services', href: '#stud-services' },
       { label: 'Photo & Video', href: '#photoshoots' },
       { label: 'All Services', href: '#services' },
+      { label: 'Deposit Now ($250)', isDeposit: true },
     ]
   },
   { label: 'FAQ', href: '#faq' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenDeposit }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -53,7 +54,18 @@ export default function Navbar() {
                 </span>
                 <div className="nav-dropdown-menu">
                   {item.dropdown.map(d => (
-                    <a key={d.label} href={d.href} className="nav-dropdown-link">{d.label}</a>
+                    d.isDeposit ? (
+                      <button
+                        key={d.label}
+                        onClick={onOpenDeposit}
+                        className="nav-dropdown-link"
+                        style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', color: 'var(--primary)', fontWeight: 600 }}
+                      >
+                        {d.label}
+                      </button>
+                    ) : (
+                      <a key={d.label} href={d.href} className="nav-dropdown-link">{d.label}</a>
+                    )
                   ))}
                 </div>
               </div>
@@ -90,10 +102,24 @@ export default function Navbar() {
                 <div key={item.label} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <span style={{ fontFamily: '"Inter", sans-serif', fontWeight: 700, fontSize: '0.95rem', color: 'var(--primary)' }}>{item.label}</span>
                   {item.dropdown.map(d => (
-                    <a key={d.label} href={d.href} onClick={() => setOpen(false)} style={{
-                      fontFamily: '"Inter", sans-serif', fontWeight: 500, fontSize: '0.9rem',
-                      color: 'var(--text)', textDecoration: 'none', paddingLeft: '1rem'
-                    }}>{d.label}</a>
+                    d.isDeposit ? (
+                      <button
+                        key={d.label}
+                        onClick={() => { setOpen(false); onOpenDeposit && onOpenDeposit(); }}
+                        style={{
+                          fontFamily: '"Inter", sans-serif', fontWeight: 700, fontSize: '0.9rem',
+                          color: 'var(--primary)', background: 'none', border: 'none', textAlign: 'left',
+                          paddingLeft: '1rem', cursor: 'pointer'
+                        }}
+                      >
+                        {d.label}
+                      </button>
+                    ) : (
+                      <a key={d.label} href={d.href} onClick={() => setOpen(false)} style={{
+                        fontFamily: '"Inter", sans-serif', fontWeight: 500, fontSize: '0.9rem',
+                        color: 'var(--text)', textDecoration: 'none', paddingLeft: '1rem'
+                      }}>{d.label}</a>
+                    )
                   ))}
                 </div>
               );

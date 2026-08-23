@@ -72,7 +72,7 @@ function App() {
 
       {loaded && (
         <div style={{ animation: 'fadeInApp 0.8s ease-out forwards' }}>
-          <Navbar />
+          <Navbar onOpenDeposit={handleOpenDeposit} />
           <Hero />
           <About />
           <Dogs onViewProfile={handleViewProfile} />
