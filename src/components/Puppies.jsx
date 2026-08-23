@@ -732,6 +732,9 @@ export default function Puppies() {
                 <div className="avail-info-card">
                   <span className="avail-info-label">Starting Price</span>
                   <span className="avail-info-value highlight">$1,500</span>
+                  <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '0.25rem', fontFamily: '"Inter", sans-serif', fontWeight: 600 }}>
+                    Deposit Amount $250
+                  </span>
                 </div>
                 <div className="avail-info-card">
                   <span className="avail-info-label">Go-Home Age</span>
