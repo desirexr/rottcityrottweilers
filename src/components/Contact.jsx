@@ -261,7 +261,7 @@ export default function Contact() {
             <div className="info-item">
               <div className="info-label">Phone</div>
               <div className="info-value">
-                <a href="tel:4046650769" style={{ color: 'var(--text)', textDecoration: 'none' }}>404-665-0769</a>
+                <a href="tel:4707742552" style={{ color: 'var(--text)', textDecoration: 'none' }}>470-774-2552</a>
               </div>
             </div>
 

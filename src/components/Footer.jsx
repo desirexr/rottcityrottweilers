@@ -126,8 +126,8 @@ export default function Footer() {
             Georgia-based Rottweiler program producing healthy, athletic, and family-oriented Rottweilers since 2017.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <a href="tel:4046650769" style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ color: 'var(--primary)' }}>📞</span> 404-665-0769
+            <a href="tel:4707742552" style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: 'var(--primary)' }}>📞</span> 470-774-2552
             </a>
             <a href="mailto:rottcityllc@gmail.com" style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span style={{ color: 'var(--primary)' }}>✉</span> rottcityllc@gmail.com
