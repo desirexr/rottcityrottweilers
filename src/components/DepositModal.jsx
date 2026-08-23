@@ -3,11 +3,9 @@ import { useState } from 'react';
 export default function DepositModal({ onClose, zelleDetails, applePayDetails }) {
   const [copiedField, setCopiedField] = useState(null);
 
-  const zelleHandle = zelleDetails?.handle || '470-774-2552';
-  const zelleName   = zelleDetails?.name || 'Rott City Rottweilers';
-
-  const applePayHandle = applePayDetails?.handle || '470-774-2552';
-  const applePayName   = applePayDetails?.name || 'Rott City Rottweilers';
+  const phoneHandle = zelleDetails?.phone || '808-208-5518';
+  const emailHandle = zelleDetails?.email || 'RottCityLLC@gmail.com';
+  const accountName = zelleDetails?.name || 'Rott City LLC';
 
   const handleCopy = (text, field) => {
     navigator.clipboard.writeText(text);
@@ -399,17 +397,24 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
               <span className="dep-card-icon">⚡</span>
               <div>
                 <h3 className="dep-card-title">Zelle</h3>
-                <span className="dep-card-tag">Instant Transfer</span>
+                <span className="dep-card-tag">Instant Bank Transfer</span>
               </div>
             </div>
             <div className="dep-info-box">
-              <div className="dep-info-label">Zelle Phone / Handle</div>
-              <div className="dep-info-val">{zelleHandle}</div>
-              <div className="dep-info-name">Name: {zelleName}</div>
+              <div className="dep-info-label">Phone Number</div>
+              <div className="dep-info-val">{phoneHandle}</div>
+              <div className="dep-info-label" style={{ marginTop: '0.6rem' }}>Email Address</div>
+              <div className="dep-info-val" style={{ fontSize: '0.9rem', wordBreak: 'break-all' }}>{emailHandle}</div>
+              <div className="dep-info-name" style={{ marginTop: '0.5rem' }}>Name: {accountName}</div>
             </div>
-            <button className="dep-copy-btn" onClick={() => handleCopy(zelleHandle, 'zelle')}>
-              {copiedField === 'zelle' ? '✓ Copied to Clipboard!' : '📋 Copy Zelle Info'}
-            </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <button className="dep-copy-btn" onClick={() => handleCopy(phoneHandle, 'zelle-phone')}>
+                {copiedField === 'zelle-phone' ? '✓ Phone Copied!' : '📋 Copy Zelle Phone'}
+              </button>
+              <button className="dep-copy-btn" onClick={() => handleCopy(emailHandle, 'zelle-email')} style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
+                {copiedField === 'zelle-email' ? '✓ Email Copied!' : '📋 Copy Zelle Email'}
+              </button>
+            </div>
           </div>
 
           {/* Apple Pay */}
@@ -422,13 +427,20 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
               </div>
             </div>
             <div className="dep-info-box">
-              <div className="dep-info-label">Apple Pay Handle</div>
-              <div className="dep-info-val">{applePayHandle}</div>
-              <div className="dep-info-name">Name: {applePayName}</div>
+              <div className="dep-info-label">Phone Number</div>
+              <div className="dep-info-val">{phoneHandle}</div>
+              <div className="dep-info-label" style={{ marginTop: '0.6rem' }}>Email Address</div>
+              <div className="dep-info-val" style={{ fontSize: '0.9rem', wordBreak: 'break-all' }}>{emailHandle}</div>
+              <div className="dep-info-name" style={{ marginTop: '0.5rem' }}>Name: {accountName}</div>
             </div>
-            <button className="dep-copy-btn" onClick={() => handleCopy(applePayHandle, 'apple')}>
-              {copiedField === 'apple' ? '✓ Copied to Clipboard!' : '📋 Copy Apple Pay Info'}
-            </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <button className="dep-copy-btn" onClick={() => handleCopy(phoneHandle, 'apple-phone')}>
+                {copiedField === 'apple-phone' ? '✓ Phone Copied!' : '📋 Copy Apple Pay Phone'}
+              </button>
+              <button className="dep-copy-btn" onClick={() => handleCopy(emailHandle, 'apple-email')} style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
+                {copiedField === 'apple-email' ? '✓ Email Copied!' : '📋 Copy Apple Pay Email'}
+              </button>
+            </div>
           </div>
 
         </div>
