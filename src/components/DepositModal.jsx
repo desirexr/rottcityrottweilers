@@ -391,7 +391,7 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
         {/* Action Buttons */}
         <div className="dep-actions">
           <a
-            href={`mailto:rottcityllc@gmail.com?subject=Puppy%20Deposit%20Confirmation%20-$250&body=Hi%20Rott%20City,%0A%0AI%20have%20sent%20my%20$250%20deposit!%0A%0AName:%20%0APayment%20Method:%20(Zelle%20/%20Apple%20Pay)%0APpreferred%20Gender/Bloodline:%20%0AConfirmation%20Code/Details:%20`}
+            href={`mailto:rottcityllc@gmail.com?subject=Puppy%20Deposit%20Confirmation%20-$250&body=Hi%20Rott%20City,%0A%0AI%20have%20sent%20my%20$250%20deposit!%0A%0AName:%20%0APayment%20Method:%20(Zelle%20/%20Apple%20Pay)%0APreferred%20Gender/Bloodline:%20%0AProof%20of%20Payment/Details:%20`}
             className="dep-btn-primary"
           >
             Send Confirmation Email
