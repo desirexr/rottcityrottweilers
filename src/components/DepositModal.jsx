@@ -5,22 +5,11 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
 
   const phoneHandle = zelleDetails?.phone || '808-208-5518';
   const emailHandle = zelleDetails?.email || 'RottCityLLC@gmail.com';
-  const accountName = zelleDetails?.name || 'Rott City LLC';
 
   const handleCopy = (text, field) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2500);
-  };
-
-  const handleMessageClick = () => {
-    onClose();
-    setTimeout(() => {
-      const contactSec = document.getElementById('contact');
-      if (contactSec) {
-        contactSec.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 150);
   };
 
   return (
@@ -194,14 +183,11 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
         .dep-card-header {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-        }
-        .dep-card-icon {
-          font-size: 1.8rem;
+          justify-content: space-between;
         }
         .dep-card-title {
           font-family: "Cinzel", serif;
-          font-size: 1.1rem;
+          font-size: 1.15rem;
           font-weight: 700;
           color: #fff;
           margin: 0;
@@ -235,12 +221,6 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           font-weight: 700;
           color: #fff;
         }
-        .dep-info-name {
-          font-family: "Inter", sans-serif;
-          font-size: 0.78rem;
-          color: rgba(255,255,255,0.5);
-          margin-top: 0.2rem;
-        }
 
         .dep-copy-btn {
           font-family: "Inter", sans-serif;
@@ -258,7 +238,6 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.4rem;
         }
         .dep-copy-btn:hover {
           background: var(--primary);
@@ -272,14 +251,6 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           border: 1px solid rgba(195,152,67,0.3);
           border-radius: 12px;
           padding: 1.25rem 1.5rem;
-          display: flex;
-          gap: 1rem;
-          align-items: flex-start;
-        }
-        .dep-notice-icon {
-          font-size: 1.5rem;
-          flex-shrink: 0;
-          margin-top: 0.1rem;
         }
         .dep-notice-text h4 {
           font-family: "Cinzel", serif;
@@ -299,13 +270,7 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
         /* ── Actions ── */
         .dep-actions {
           display: flex;
-          flex-direction: column;
-          gap: 0.85rem;
-        }
-        @media (min-width: 500px) {
-          .dep-actions {
-            flex-direction: row;
-          }
+          justify-content: center;
         }
         .dep-btn-primary {
           font-family: "Inter", sans-serif;
@@ -313,7 +278,7 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           font-size: 0.82rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          padding: 1rem 1.6rem;
+          padding: 1.1rem 2.2rem;
           border-radius: 8px;
           cursor: pointer;
           text-decoration: none;
@@ -321,49 +286,24 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           background: var(--primary);
           color: #000;
           border: none;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
           box-shadow: 0 4px 18px rgba(195,152,67,0.3);
-          flex: 1;
+          width: 100%;
+          max-width: 400px;
         }
         .dep-btn-primary:hover {
           background: #e6c96a;
           transform: translateY(-2px);
           box-shadow: 0 8px 28px rgba(195,152,67,0.4);
         }
-        .dep-btn-secondary {
-          font-family: "Inter", sans-serif;
-          font-weight: 700;
-          font-size: 0.82rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          padding: 1rem 1.6rem;
-          border-radius: 8px;
-          cursor: pointer;
-          text-decoration: none;
-          transition: all 0.25s;
-          background: transparent;
-          color: rgba(255,255,255,0.8);
-          border: 1.5px solid rgba(255,255,255,0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-          flex: 1;
-        }
-        .dep-btn-secondary:hover {
-          border-color: rgba(255,255,255,0.5);
-          color: #fff;
-          transform: translateY(-2px);
-        }
       `}</style>
 
       {/* Top bar */}
       <div className="dep-topbar">
         <button className="dep-back-btn" onClick={onClose}>
-          ← Back to Site
+          Back to Site
         </button>
         <span className="dep-topbar-logo">Rott City Rottweilers</span>
       </div>
@@ -373,7 +313,7 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
 
         {/* Header */}
         <div className="dep-header">
-          <span className="dep-badge">🔒 Official Puppy Reservation</span>
+          <span className="dep-badge">Official Puppy Reservation</span>
           <h1 className="dep-title">Place Your $250 Deposit</h1>
           <p className="dep-subtitle">
             Send your $250 deposit via Zelle or Apple Pay using the details below. 
@@ -394,25 +334,21 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           {/* Zelle */}
           <div className="dep-card">
             <div className="dep-card-header">
-              <span className="dep-card-icon">⚡</span>
-              <div>
-                <h3 className="dep-card-title">Zelle</h3>
-                <span className="dep-card-tag">Instant Bank Transfer</span>
-              </div>
+              <h3 className="dep-card-title">Zelle</h3>
+              <span className="dep-card-tag">Instant Bank Transfer</span>
             </div>
             <div className="dep-info-box">
               <div className="dep-info-label">Phone Number</div>
               <div className="dep-info-val">{phoneHandle}</div>
               <div className="dep-info-label" style={{ marginTop: '0.6rem' }}>Email Address</div>
               <div className="dep-info-val" style={{ fontSize: '0.9rem', wordBreak: 'break-all' }}>{emailHandle}</div>
-              <div className="dep-info-name" style={{ marginTop: '0.5rem' }}>Name: {accountName}</div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <button className="dep-copy-btn" onClick={() => handleCopy(phoneHandle, 'zelle-phone')}>
-                {copiedField === 'zelle-phone' ? '✓ Phone Copied!' : '📋 Copy Zelle Phone'}
+                {copiedField === 'zelle-phone' ? 'Phone Copied!' : 'Copy Zelle Phone'}
               </button>
               <button className="dep-copy-btn" onClick={() => handleCopy(emailHandle, 'zelle-email')} style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
-                {copiedField === 'zelle-email' ? '✓ Email Copied!' : '📋 Copy Zelle Email'}
+                {copiedField === 'zelle-email' ? 'Email Copied!' : 'Copy Zelle Email'}
               </button>
             </div>
           </div>
@@ -420,25 +356,21 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
           {/* Apple Pay */}
           <div className="dep-card">
             <div className="dep-card-header">
-              <span className="dep-card-icon">📱</span>
-              <div>
-                <h3 className="dep-card-title">Apple Pay</h3>
-                <span className="dep-card-tag">Apple Transfer</span>
-              </div>
+              <h3 className="dep-card-title">Apple Pay</h3>
+              <span className="dep-card-tag">Apple Transfer</span>
             </div>
             <div className="dep-info-box">
               <div className="dep-info-label">Phone Number</div>
               <div className="dep-info-val">{phoneHandle}</div>
               <div className="dep-info-label" style={{ marginTop: '0.6rem' }}>Email Address</div>
               <div className="dep-info-val" style={{ fontSize: '0.9rem', wordBreak: 'break-all' }}>{emailHandle}</div>
-              <div className="dep-info-name" style={{ marginTop: '0.5rem' }}>Name: {accountName}</div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <button className="dep-copy-btn" onClick={() => handleCopy(phoneHandle, 'apple-phone')}>
-                {copiedField === 'apple-phone' ? '✓ Phone Copied!' : '📋 Copy Apple Pay Phone'}
+                {copiedField === 'apple-phone' ? 'Phone Copied!' : 'Copy Apple Pay Phone'}
               </button>
               <button className="dep-copy-btn" onClick={() => handleCopy(emailHandle, 'apple-email')} style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
-                {copiedField === 'apple-email' ? '✓ Email Copied!' : '📋 Copy Apple Pay Email'}
+                {copiedField === 'apple-email' ? 'Email Copied!' : 'Copy Apple Pay Email'}
               </button>
             </div>
           </div>
@@ -447,7 +379,6 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
 
         {/* Important Confirmation Notice */}
         <div className="dep-notice-box">
-          <span className="dep-notice-icon">📩</span>
           <div className="dep-notice-text">
             <h4>Important: Confirm Your Deposit</h4>
             <p>
@@ -460,14 +391,11 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
         {/* Action Buttons */}
         <div className="dep-actions">
           <a
-            href={`mailto:rottcityllc@gmail.com?subject=Puppy%20Deposit%20Confirmation%20-$250&body=Hi%20Rott%20City,%0A%0AI%20have%20sent%20my%20$250%20deposit!%0A%0AName:%20%0APayment%20Method:%20(Zelle%20/%20Apple%20Pay)%0APreferred%20Gender/Bloodline:%20%0AConfirmation%20Code/Details:%20`}
+            href={`mailto:rottcityllc@gmail.com?subject=Puppy%20Deposit%20Confirmation%20-$250&body=Hi%20Rott%20City,%0A%0AI%20have%20sent%20my%20$250%20deposit!%0A%0AName:%20%0APayment%20Method:%20(Zelle%20/%20Apple%20Pay)%0APpreferred%20Gender/Bloodline:%20%0AConfirmation%20Code/Details:%20`}
             className="dep-btn-primary"
           >
-            ✉️ Send Confirmation Email
+            Send Confirmation Email
           </a>
-          <button className="dep-btn-secondary" onClick={handleMessageClick}>
-            💬 Send Website Message
-          </button>
         </div>
 
       </div>

@@ -478,7 +478,7 @@ export default function Booking({ onOpenDeposit }) {
                       transition: 'all 0.2s',
                     }}
                   >
-                    🔒 Pay $250 Deposit Now
+                    Pay $250 Deposit Now
                   </button>
                 )}
               </div>
@@ -492,7 +492,7 @@ export default function Booking({ onOpenDeposit }) {
         <p>Ready to start the process?</p>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
           <button onClick={onOpenDeposit} className="bk-cta-btn" style={{ border: 'none', background: 'var(--primary)', color: '#000', cursor: 'pointer' }}>
-            💳 Deposit Now ($250)
+            Deposit Now ($250)
           </button>
           <a href="#contact" className="bk-cta-btn">
             🐾 Begin Your Application

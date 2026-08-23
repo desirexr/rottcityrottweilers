@@ -763,7 +763,7 @@ export default function Puppies({ onOpenDeposit }) {
 
               <div className="avail-cta">
                 <button className="avail-cta-btn" onClick={onOpenDeposit}>
-                  🔒 Place $250 Deposit Now
+                  Place $250 Deposit Now
                 </button>
               </div>
 
