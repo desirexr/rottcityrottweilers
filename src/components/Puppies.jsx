@@ -14,7 +14,7 @@ const PUPPY_SLIDES = [
   { src: pup4, alt: 'Rott City Puppy Working Harness', badge: '📸 Working Harness' },
 ];
 
-export default function Puppies() {
+export default function Puppies({ onOpenDeposit }) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -759,6 +759,12 @@ export default function Puppies() {
                   <li>Health checked before go-home</li>
                   <li>Pedigree available upon request</li>
                 </ul>
+              </div>
+
+              <div className="avail-cta">
+                <button className="avail-cta-btn" onClick={onOpenDeposit}>
+                  🔒 Place $250 Deposit Now
+                </button>
               </div>
 
 

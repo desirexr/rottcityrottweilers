@@ -51,7 +51,7 @@ const STEPS = [
   },
 ];
 
-export default function Booking() {
+export default function Booking({ onOpenDeposit }) {
   const containerRef  = useRef(null);
   const nodeRefs      = useRef([]);
   const [svgPath, setSvgPath] = useState('');
@@ -456,6 +456,31 @@ export default function Booking() {
                 <p className="bk-card-step">Step {step.num}</p>
                 <h3 className="bk-card-title">{step.title}</h3>
                 <p className="bk-card-body">{step.body}</p>
+                {step.num === 4 && (
+                  <button
+                    onClick={onOpenDeposit}
+                    style={{
+                      marginTop: '1rem',
+                      fontFamily: '"Inter", sans-serif',
+                      fontWeight: 700,
+                      fontSize: '0.78rem',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '0.65rem 1.25rem',
+                      borderRadius: '6px',
+                      border: '1.5px solid var(--primary)',
+                      background: 'rgba(195,152,67,0.15)',
+                      color: 'var(--primary)',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    🔒 Pay $250 Deposit Now
+                  </button>
+                )}
               </div>
             </div>
           );
@@ -465,9 +490,14 @@ export default function Booking() {
       {/* Bottom CTA */}
       <div className="bk-cta">
         <p>Ready to start the process?</p>
-        <a href="#contact" className="bk-cta-btn">
-          🐾 Begin Your Application
-        </a>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <button onClick={onOpenDeposit} className="bk-cta-btn" style={{ border: 'none', background: 'var(--primary)', color: '#000', cursor: 'pointer' }}>
+            💳 Deposit Now ($250)
+          </button>
+          <a href="#contact" className="bk-cta-btn">
+            🐾 Begin Your Application
+          </a>
+        </div>
       </div>
     </section>
   );

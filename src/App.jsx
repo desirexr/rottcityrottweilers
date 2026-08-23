@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Dogs from './components/Dogs';
 import DogProfile from './components/DogProfile';
+import DepositModal from './components/DepositModal';
 import Puppies from './components/Puppies';
 import Booking from './components/Booking';
 import Training from './components/Training';
@@ -19,6 +20,7 @@ import './index.css';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const [selectedDog, setSelectedDog] = useState(null);
+  const [showDeposit, setShowDeposit] = useState(false);
 
   const handleViewProfile = (dog) => {
     setSelectedDog(dog);
@@ -31,9 +33,25 @@ function App() {
     document.body.style.overflow = '';
   };
 
+  const handleOpenDeposit = () => {
+    setShowDeposit(true);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseDeposit = () => {
+    setShowDeposit(false);
+    document.body.style.overflow = '';
+  };
+
   // Close on Escape key
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') handleCloseProfile(); };
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        handleCloseProfile();
+        handleCloseDeposit();
+      }
+    };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
@@ -47,14 +65,19 @@ function App() {
         <DogProfile dog={selectedDog} onClose={handleCloseProfile} />
       )}
 
+      {/* Deposit Now Overlay */}
+      {showDeposit && (
+        <DepositModal onClose={handleCloseDeposit} />
+      )}
+
       {loaded && (
         <div style={{ animation: 'fadeInApp 0.8s ease-out forwards' }}>
           <Navbar />
           <Hero />
           <About />
           <Dogs onViewProfile={handleViewProfile} />
-          <Puppies />
-          <Booking />
+          <Puppies onOpenDeposit={handleOpenDeposit} />
+          <Booking onOpenDeposit={handleOpenDeposit} />
           <Training />
           <StudServices />
           <Photoshoots />
