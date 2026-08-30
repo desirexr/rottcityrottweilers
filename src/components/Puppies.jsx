@@ -40,7 +40,7 @@ export default function Puppies({ onOpenDeposit }) {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 2500);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
