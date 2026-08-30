@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -21,27 +21,31 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [selectedDog, setSelectedDog] = useState(null);
   const [showDeposit, setShowDeposit] = useState(false);
+  const savedDogScrollPos = useRef(0);
+  const savedDepositScrollPos = useRef(0);
 
   const handleViewProfile = (dog) => {
+    savedDogScrollPos.current = window.scrollY;
     setSelectedDog(dog);
-    window.scrollTo({ top: 0, behavior: 'instant' });
     document.body.style.overflow = 'hidden';
   };
 
   const handleCloseProfile = () => {
     setSelectedDog(null);
     document.body.style.overflow = '';
+    window.scrollTo({ top: savedDogScrollPos.current, behavior: 'instant' });
   };
 
   const handleOpenDeposit = () => {
+    savedDepositScrollPos.current = window.scrollY;
     setShowDeposit(true);
-    window.scrollTo({ top: 0, behavior: 'instant' });
     document.body.style.overflow = 'hidden';
   };
 
   const handleCloseDeposit = () => {
     setShowDeposit(false);
     document.body.style.overflow = '';
+    window.scrollTo({ top: savedDepositScrollPos.current, behavior: 'instant' });
   };
 
   // Close on Escape key
