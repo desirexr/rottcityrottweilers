@@ -3,6 +3,8 @@ import enzo     from '../assets/dog-enzo.jpg';
 import coco     from '../assets/dog-coco.jpg';
 import biggie   from '../assets/dog-biggie.jpg';
 import melo     from '../assets/dog-melo.jpg';
+import melo2    from '../assets/dog-melo-2.jpg';
+import melo3    from '../assets/dog-melo-3.jpg';
 import kingCreed from '../assets/dog-king-creed.jpg';
 
 export const DOGS = [
@@ -62,6 +64,7 @@ export const DOGS = [
     temperament: ['Confident', 'Stable', 'Athletic'],
     flag: '🇩🇪',
     img: melo,
+    photos: [melo2, melo3],
   },
   {
     id: 'king-creed',

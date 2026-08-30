@@ -410,6 +410,34 @@ export default function DogProfile({ dog, onClose }) {
             </div>
           </div>
 
+          {/* Photo Gallery */}
+          {dog.photos && dog.photos.length > 0 && (
+            <div>
+              <p className="dp-section-label">Gallery</p>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: `repeat(${dog.photos.length}, 1fr)`,
+                gap: '0.75rem',
+              }}>
+                {dog.photos.map((photo, i) => (
+                  <img
+                    key={i}
+                    src={photo}
+                    alt={`${dog.name} photo ${i + 2}`}
+                    style={{
+                      width: '100%',
+                      height: '220px',
+                      objectFit: 'cover',
+                      borderRadius: '10px',
+                      border: '1px solid rgba(195,152,67,0.2)',
+                      display: 'block',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Pedigree */}
           <div className="dp-pedigree-box">
             <span className="dp-pedigree-icon">📋</span>
