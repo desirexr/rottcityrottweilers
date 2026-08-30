@@ -5,13 +5,25 @@ import pup1 from '../assets/puppy-new-1.jpg';
 import pup2 from '../assets/puppy-new-2.jpg';
 import pup3 from '../assets/puppy-new-3.jpg';
 import pup4 from '../assets/puppy-new-4.jpg';
+import pup5 from '../assets/puppy-new-5.jpg';
+import pup6 from '../assets/puppy-new-6.jpg';
+import pup7 from '../assets/puppy-new-7.jpg';
+import pup8 from '../assets/puppy-new-8.jpg';
+import pup9 from '../assets/puppy-new-9.jpg';
+import pup10 from '../assets/puppy-new-10.jpg';
 
 const PUPPY_SLIDES = [
-  { src: litterPup, alt: 'Rott City Rottweilers Past Litter', badge: '📸 Past Litter' },
-  { src: pup1, alt: 'Rott City Puppy Close-up Portrait', badge: '📸 Puppy Portrait' },
-  { src: pup2, alt: 'Rott City Outdoor Puppy Stance', badge: '📸 Outdoor Stance' },
-  { src: pup3, alt: 'Rott City Puppy Sitting Portrait', badge: '📸 Puppy Feature' },
-  { src: pup4, alt: 'Rott City Puppy Working Harness', badge: '📸 Working Harness' },
+  { src: litterPup, alt: 'Rott City Rottweilers Past Litter', badge: 'Past Litter' },
+  { src: pup1, alt: 'Rott City Puppy Close-up Portrait', badge: 'Puppy Portrait' },
+  { src: pup2, alt: 'Rott City Outdoor Puppy Stance', badge: 'Outdoor Stance' },
+  { src: pup3, alt: 'Rott City Puppy Sitting Portrait', badge: 'Puppy Feature' },
+  { src: pup4, alt: 'Rott City Puppy Working Harness', badge: 'Working Harness' },
+  { src: pup5, alt: 'Rott City Rottweiler Puppies on Car Hood', badge: 'Litter Duo' },
+  { src: pup6, alt: 'Rott City Rottweiler Puppies Resting', badge: 'Litter Duo' },
+  { src: pup7, alt: 'Rott City Rottweiler Puppy Portrait', badge: 'Puppy Portrait' },
+  { src: pup8, alt: 'Rott City Rottweiler Young Dog Outdoors', badge: 'Young Rott' },
+  { src: pup9, alt: 'Rott City Rottweiler Puppy with Stick', badge: 'Puppy Play' },
+  { src: pup10, alt: 'Rott City Rottweiler Puppy Standing', badge: 'Puppy Stance' },
 ];
 
 export default function Puppies({ onOpenDeposit }) {
@@ -83,7 +95,7 @@ export default function Puppies({ onOpenDeposit }) {
 
         /* ── Group Photo / Slideshow ── */
         .pups-slider-container {
-          max-width: 480px;
+          max-width: 620px;
           margin: 0 auto;
           width: 100%;
         }
@@ -92,28 +104,19 @@ export default function Puppies({ onOpenDeposit }) {
           border-radius: 14px;
           overflow: hidden;
           box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-          border: 1px solid rgba(195,152,67,0.3);
           width: 100%;
-          aspect-ratio: 4 / 5;
-          background: #111;
         }
         .pups-slide {
-          position: absolute;
-          inset: 0;
-          opacity: 0;
-          transition: opacity 0.5s ease-in-out;
-          pointer-events: none;
+          display: none;
         }
         .pups-slide.active {
-          opacity: 1;
-          pointer-events: auto;
+          display: block;
         }
         .pups-group-img {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
+          height: auto;
           display: block;
+          border-radius: 14px;
         }
         .pups-arrow {
           position: absolute;
