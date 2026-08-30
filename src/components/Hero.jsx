@@ -3,9 +3,9 @@ import rottweiler from '../assets/hero-dog.png';
 
 const STATS = [
   { icon: '🏆', value: '10+', label: 'Years of Experience' },
-  { icon: '📋', value: 'CKC', label: 'Registered Breeder' },
+  { icon: '📋', value: 'AKC', label: 'Registered Breeder' },
   { icon: '🧬', value: '100%', label: 'Health Tested Bloodlines' },
-  { icon: '❤️', value: '500+', label: 'Happy Families' },
+  { icon: '❤️', value: '200+', label: 'Happy Families' },
 ];
 
 export default function Hero() {
