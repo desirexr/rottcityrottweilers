@@ -105,18 +105,32 @@ export default function Puppies({ onOpenDeposit }) {
           overflow: hidden;
           box-shadow: 0 16px 48px rgba(0,0,0,0.35);
           width: 100%;
+          height: 520px;
+          background: #0e0e0e;
+        }
+        @media (max-width: 600px) {
+          .pups-group-img-wrap { height: 360px; }
         }
         .pups-slide {
           display: none;
+          width: 100%;
+          height: 100%;
         }
         .pups-slide.active {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
         }
         .pups-group-img {
-          width: 100%;
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
           height: auto;
+          object-fit: contain;
           display: block;
-          border-radius: 14px;
+          border-radius: 4px;
         }
         .pups-arrow {
           position: absolute;
