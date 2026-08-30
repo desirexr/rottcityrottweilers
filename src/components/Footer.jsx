@@ -194,7 +194,13 @@ export default function Footer() {
         <div className="footer-copyright">
           &copy; {new Date().getFullYear()} Rott City Rottweilers. All rights reserved.
           <span style={{ display: 'block', marginTop: '0.3rem', fontSize: '0.75rem', opacity: 0.7 }}>
-            designed by BuiltbyDesire
+            designed by{' '}
+            <a
+              href="mailto:contact.desirexr@gmail.com"
+              style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px', cursor: 'pointer' }}
+            >
+              BuiltbyDesire
+            </a>
           </span>
         </div>
         <div style={{ display: 'flex', gap: '1.5rem' }}>
