@@ -5,6 +5,9 @@ import photo3 from '../assets/photoshoot-new-3.jpg';
 import photo4 from '../assets/photoshoot-new-4.jpg';
 import photo5 from '../assets/photoshoot-new-5.jpg';
 import photo6 from '../assets/photoshoot-new-6.jpg';
+import photo7 from '../assets/photoshoot-new-7.jpg';
+import photo8 from '../assets/photoshoot-new-8.jpg';
+import photo9 from '../assets/photoshoot-new-9.jpg';
 
 const PHOTOS = [
   { src: photo1, title: 'Night Classic Car Shoot', alt: 'Rott City Rottweilers Night Shoot with Classic Car' },
@@ -13,6 +16,9 @@ const PHOTOS = [
   { src: photo4, title: 'Tunnel Production Feature', alt: 'Rott City Rottweilers Tunnel Production' },
   { src: photo5, title: 'City Street Lifestyle', alt: 'Rott City Rottweilers City Lifestyle Session' },
   { src: photo6, title: 'Times Square Night Shoot', alt: 'Rott City Rottweilers Times Square Crosswalk Shoot' },
+  { src: photo7, title: 'Mural Wall Duo Session', alt: 'Rott City Rottweilers Mural Wall Duo Shoot' },
+  { src: photo8, title: 'Classic Car Lifestyle Portrait', alt: 'Rott City Rottweilers Car Lifestyle Portrait' },
+  { src: photo9, title: 'Black & White Editorial', alt: 'Rott City Rottweilers Black and White Editorial Shoot' },
 ];
 
 const PRICING_TIERS = [
