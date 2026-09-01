@@ -28,7 +28,6 @@ export default function Navbar({ onOpenDeposit }) {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
         backgroundColor: 'var(--background)',
-        borderBottom: '1px solid var(--border)',
         height: '5rem',
         display: 'flex', alignItems: 'center',
         padding: '0 clamp(1rem, 4vw, 3rem)',
