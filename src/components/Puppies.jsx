@@ -727,10 +727,6 @@ export default function Puppies({ onOpenDeposit }) {
                   <span className="upcoming-card-value gold">$1,500</span>
                   <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.2rem', fontFamily: '"Inter", sans-serif', fontWeight: 600 }}>Deposit $250</span>
                 </div>
-                <div className="upcoming-card">
-                  <span className="upcoming-card-label">Breeding Type</span>
-                  <span className="upcoming-card-value">Repeat Pairing</span>
-                </div>
               </div>
 
               <div>
@@ -742,17 +738,6 @@ export default function Puppies({ onOpenDeposit }) {
                   <span className="upcoming-trait">Dominant</span>
                   <span className="upcoming-trait">Prey Driven</span>
                 </div>
-              </div>
-
-              <div style={{ background: 'rgba(195,152,67,0.06)', border: '1px solid rgba(195,152,67,0.2)', borderRadius: '12px', padding: '1rem 1.1rem' }}>
-                <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--text-muted)', margin: '0 0 0.6rem' }}>What&apos;s Included</p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  {['Age-appropriate vaccinations', 'Deworming completed', 'AKC registration eligible', 'Health checked before go-home', 'Pedigree available upon request'].map(item => (
-                    <li key={item} style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '0.8rem' }}>✓</span> {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className="upcoming-cta">
