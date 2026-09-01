@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import litterPup from '../assets/litter-pup.jpg';
 import cocoRoshiLitter from '../assets/litter-coco-roshi.jpg';
+import upcomingFlyer from '../assets/upcoming-litter-flyer.jpg';
 import pup1 from '../assets/puppy-new-1.jpg';
 import pup2 from '../assets/puppy-new-2.jpg';
 import pup3 from '../assets/puppy-new-3.jpg';
@@ -512,6 +513,258 @@ export default function Puppies({ onOpenDeposit }) {
             <a href="#contact" className="current-card-btn">
               🐾 Check Availability
             </a>
+          </div>
+        </div>
+
+        {/* ── Upcoming Litter ── */}
+        <div className="upcoming-litter-section">
+          <style>{`
+            .upcoming-litter-section {
+              border-top: 1px solid var(--border);
+              padding-top: clamp(2.5rem, 6vw, 4rem);
+              margin-bottom: clamp(1rem, 3vw, 2rem);
+            }
+            .upcoming-litter-wrap {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 2.5rem;
+              align-items: start;
+            }
+            @media (min-width: 768px) {
+              .upcoming-litter-wrap { grid-template-columns: 1fr 1fr; }
+            }
+            .upcoming-flyer-col {
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+              border: 1px solid rgba(195,152,67,0.3);
+            }
+            .upcoming-flyer-col img {
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+            .upcoming-info-col {
+              display: flex;
+              flex-direction: column;
+              gap: 1.5rem;
+            }
+            .upcoming-badge {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              background: rgba(195,152,67,0.12);
+              color: var(--primary);
+              border: 1px solid rgba(195,152,67,0.4);
+              font-family: "Inter", sans-serif;
+              font-size: 0.65rem;
+              font-weight: 700;
+              letter-spacing: 0.18em;
+              text-transform: uppercase;
+              padding: 0.4rem 1rem;
+              border-radius: 20px;
+              width: fit-content;
+            }
+            .upcoming-badge::before {
+              content: '';
+              width: 7px;
+              height: 7px;
+              background: var(--primary);
+              border-radius: 50%;
+              display: inline-block;
+              animation: badge-pulse-anim 1.5s infinite;
+            }
+            .upcoming-title {
+              font-family: "Cinzel", serif;
+              font-weight: 700;
+              font-size: clamp(1.5rem, 5vw, 2.2rem);
+              color: var(--text);
+              margin: 0;
+              line-height: 1.2;
+            }
+            .upcoming-subtitle {
+              font-family: "Inter", sans-serif;
+              font-size: 0.85rem;
+              color: var(--text-muted);
+              margin: 0.3rem 0 0;
+            }
+            .upcoming-subtitle span { color: var(--primary); font-weight: 600; }
+            .upcoming-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 0.75rem;
+            }
+            .upcoming-card {
+              background: var(--surface, #f9f6f1);
+              border: 1px solid var(--border);
+              border-radius: 12px;
+              padding: 0.9rem 1rem;
+            }
+            .upcoming-card-label {
+              font-family: "Inter", sans-serif;
+              font-size: 0.6rem;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.15em;
+              color: var(--text-muted);
+              display: block;
+              margin-bottom: 0.3rem;
+            }
+            .upcoming-card-value {
+              font-family: "Cinzel", serif;
+              font-size: clamp(0.82rem, 2.5vw, 0.92rem);
+              font-weight: 700;
+              color: var(--text);
+              line-height: 1.4;
+            }
+            .upcoming-card-value.gold { color: var(--primary); }
+            .upcoming-traits {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.5rem;
+            }
+            .upcoming-trait {
+              font-family: "Inter", sans-serif;
+              font-size: 0.72rem;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: var(--primary);
+              background: rgba(195,152,67,0.1);
+              border: 1px solid rgba(195,152,67,0.3);
+              border-radius: 6px;
+              padding: 0.35rem 0.75rem;
+            }
+            .upcoming-cta {
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+            }
+            @media (min-width: 480px) {
+              .upcoming-cta { flex-direction: row; }
+            }
+            .upcoming-cta-primary {
+              flex: 1;
+              font-family: "Inter", sans-serif;
+              font-weight: 700;
+              font-size: 0.82rem;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              padding: 1rem 1.5rem;
+              border-radius: 8px;
+              cursor: pointer;
+              border: none;
+              background: var(--primary);
+              color: #fff;
+              transition: all 0.25s;
+              box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.5rem;
+            }
+            .upcoming-cta-primary:hover {
+              background: var(--primary-dark, #7a0000);
+              transform: translateY(-2px);
+              box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+            }
+            .upcoming-cta-secondary {
+              flex: 1;
+              font-family: "Inter", sans-serif;
+              font-weight: 700;
+              font-size: 0.82rem;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              padding: 1rem 1.5rem;
+              border-radius: 8px;
+              cursor: pointer;
+              text-decoration: none;
+              background: transparent;
+              color: var(--text);
+              border: 1.5px solid var(--border);
+              transition: all 0.25s;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.5rem;
+            }
+            .upcoming-cta-secondary:hover {
+              border-color: var(--primary);
+              color: var(--primary);
+            }
+          `}</style>
+
+          {/* Header */}
+          <div style={{ marginBottom: '2rem' }}>
+            <span className="upcoming-badge">Upcoming Litter</span>
+            <h2 className="upcoming-title" style={{ marginTop: '0.75rem' }}>King Roshi × Coco Milan</h2>
+            <p className="upcoming-subtitle">
+              <span>King Roshi</span> (Serbian Bloodline) × <span>Coco Milan</span> (German Bloodline) — Repeat Breeding
+            </p>
+          </div>
+
+          <div className="upcoming-litter-wrap">
+
+            {/* Flyer */}
+            <div className="upcoming-flyer-col">
+              <img src={upcomingFlyer} alt="King Roshi × Coco Milan Upcoming Litter Flyer" />
+            </div>
+
+            {/* Info */}
+            <div className="upcoming-info-col">
+
+              <div className="upcoming-grid">
+                <div className="upcoming-card">
+                  <span className="upcoming-card-label">Expected Delivery</span>
+                  <span className="upcoming-card-value">October 2026</span>
+                </div>
+                <div className="upcoming-card">
+                  <span className="upcoming-card-label">Go-Home Date</span>
+                  <span className="upcoming-card-value">January 2027</span>
+                </div>
+                <div className="upcoming-card">
+                  <span className="upcoming-card-label">Starting Price</span>
+                  <span className="upcoming-card-value gold">$1,500</span>
+                  <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.2rem', fontFamily: '"Inter", sans-serif', fontWeight: 600 }}>Deposit $250</span>
+                </div>
+                <div className="upcoming-card">
+                  <span className="upcoming-card-label">Breeding Type</span>
+                  <span className="upcoming-card-value">Repeat Pairing</span>
+                </div>
+              </div>
+
+              <div>
+                <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>Expected Traits</p>
+                <div className="upcoming-traits">
+                  <span className="upcoming-trait">Athletic</span>
+                  <span className="upcoming-trait">Protective</span>
+                  <span className="upcoming-trait">Working Line</span>
+                  <span className="upcoming-trait">Dominant</span>
+                  <span className="upcoming-trait">Prey Driven</span>
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(195,152,67,0.06)', border: '1px solid rgba(195,152,67,0.2)', borderRadius: '12px', padding: '1rem 1.1rem' }}>
+                <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--text-muted)', margin: '0 0 0.6rem' }}>What&apos;s Included</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                  {['Age-appropriate vaccinations', 'Deworming completed', 'AKC registration eligible', 'Health checked before go-home', 'Pedigree available upon request'].map(item => (
+                    <li key={item} style={{ fontFamily: '"Inter", sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '0.8rem' }}>✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="upcoming-cta">
+                <button className="upcoming-cta-primary" onClick={onOpenDeposit}>
+                  Reserve with $250 Deposit
+                </button>
+                <a href="#contact" className="upcoming-cta-secondary">
+                  Ask a Question
+                </a>
+              </div>
+
+            </div>
           </div>
         </div>
 
