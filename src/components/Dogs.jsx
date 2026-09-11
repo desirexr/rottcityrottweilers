@@ -7,6 +7,10 @@ import melo2    from '../assets/dog-melo-2.jpg';
 import melo3    from '../assets/dog-melo-3.jpg';
 import kingCreed from '../assets/dog-king-creed.jpg';
 import lucki     from '../assets/dog-lucki.jpg';
+import lucki1    from '../assets/dog-lucki-1.jpg';
+import lucki2    from '../assets/dog-lucki-2.jpg';
+import lucki3    from '../assets/dog-lucki-3.jpg';
+import lucki4    from '../assets/dog-lucki-4.jpg';
 
 export const DOGS = [
   {
@@ -90,6 +94,7 @@ export const DOGS = [
     temperament: ['Dark Mahogany', 'German Pedigree', 'Bone Density', 'Athletic'],
     flag: '🇩🇪',
     img: lucki,
+    photos: [lucki1, lucki2, lucki3, lucki4],
   },
 ];
 

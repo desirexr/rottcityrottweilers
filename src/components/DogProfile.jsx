@@ -434,7 +434,7 @@ export default function DogProfile({ dog, onClose }) {
               <p className="dp-section-label">Gallery</p>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: `repeat(${dog.photos.length}, 1fr)`,
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
                 gap: '0.75rem',
               }}>
                 {dog.photos.map((photo, i) => (
