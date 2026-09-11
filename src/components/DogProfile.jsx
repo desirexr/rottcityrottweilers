@@ -386,6 +386,24 @@ export default function DogProfile({ dog, onClose }) {
                 <span className="dp-stat-value">{dog.age}</span>
               </div>
             )}
+            {dog.dob && (
+              <div className="dp-stat">
+                <span className="dp-stat-label">DOB</span>
+                <span className="dp-stat-value">{dog.dob}</span>
+              </div>
+            )}
+            {dog.sire && (
+              <div className="dp-stat">
+                <span className="dp-stat-label">Sire</span>
+                <span className="dp-stat-value">{dog.sire}</span>
+              </div>
+            )}
+            {dog.dam && (
+              <div className="dp-stat">
+                <span className="dp-stat-label">Dam</span>
+                <span className="dp-stat-value">{dog.dam}</span>
+              </div>
+            )}
             <div className="dp-stat">
               <span className="dp-stat-label">Bloodline</span>
               <span className="dp-stat-value">{dog.flag}</span>

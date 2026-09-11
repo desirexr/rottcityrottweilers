@@ -6,6 +6,7 @@ import melo     from '../assets/dog-melo.jpg';
 import melo2    from '../assets/dog-melo-2.jpg';
 import melo3    from '../assets/dog-melo-3.jpg';
 import kingCreed from '../assets/dog-king-creed.jpg';
+import lucki     from '../assets/dog-lucki.jpg';
 
 export const DOGS = [
   {
@@ -75,6 +76,20 @@ export const DOGS = [
     temperament: ['Protective', 'Dominant', 'Athletic', 'High Prey Drive'],
     flag: '🇩🇪',
     img: kingCreed,
+  },
+  {
+    id: 'lucki',
+    name: 'Lucki',
+    bloodline: 'German',
+    extra: 'Sire: King Biggie · Dam: Coco Milan',
+    gender: 'Male',
+    dob: 'Nov 21, 2024',
+    sire: 'King Biggie',
+    dam: 'Coco Milan',
+    description: 'Lucki comes with a powerful German pedigree, pulling genetics from champions like Jumper von der Crossener Ranch, Wasco vom Rauberweg, and Mambo von der Crossener Ranch. Features dark mahogany markings, excellent bone density, structure, and athletic performance.',
+    temperament: ['Dark Mahogany', 'German Pedigree', 'Bone Density', 'Athletic'],
+    flag: '🇩🇪',
+    img: lucki,
   },
 ];
 
