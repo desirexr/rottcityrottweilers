@@ -357,10 +357,15 @@ export default function DepositModal({ onClose, zelleDetails, applePayDetails })
             <div className="dep-info-box">
               <div className="dep-info-label">Phone Number</div>
               <div className="dep-info-val">{phoneHandle}</div>
+              <div className="dep-info-label" style={{ marginTop: '0.6rem' }}>Email Address</div>
+              <div className="dep-info-val" style={{ fontSize: '0.9rem', wordBreak: 'break-all' }}>{emailHandle}</div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <button className="dep-copy-btn" onClick={() => handleCopy(phoneHandle, 'apple-phone')}>
                 {copiedField === 'apple-phone' ? 'Phone Copied!' : 'Copy Apple Pay Phone'}
+              </button>
+              <button className="dep-copy-btn" onClick={() => handleCopy(emailHandle, 'apple-email')} style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
+                {copiedField === 'apple-email' ? 'Email Copied!' : 'Copy Apple Pay Email'}
               </button>
             </div>
           </div>
