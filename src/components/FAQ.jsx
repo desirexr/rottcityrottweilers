@@ -3,7 +3,7 @@ import { useState } from 'react';
 const FAQS = [
   {
     q: 'How much are your puppies?',
-    a: 'Prices typically start at $1,500. Pricing may vary depending on litter and availability.',
+    a: 'Prices typically start at $1,750. Pricing may vary depending on litter and availability.',
   },
   {
     q: 'Do you offer delivery?',

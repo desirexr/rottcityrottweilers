@@ -724,7 +724,7 @@ export default function Puppies({ onOpenDeposit }) {
                 </div>
                 <div className="upcoming-card">
                   <span className="upcoming-card-label">Starting Price</span>
-                  <span className="upcoming-card-value gold">$1,500</span>
+                  <span className="upcoming-card-value gold">$1,750</span>
                   <span style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.2rem', fontFamily: '"Inter", sans-serif', fontWeight: 600 }}>Deposit $250</span>
                 </div>
               </div>
@@ -986,7 +986,7 @@ export default function Puppies({ onOpenDeposit }) {
               <div className="avail-info-grid">
                 <div className="avail-info-card">
                   <span className="avail-info-label">Starting Price</span>
-                  <span className="avail-info-value highlight">$1,500</span>
+                  <span className="avail-info-value highlight">$1,750</span>
                   <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '0.25rem', fontFamily: '"Inter", sans-serif', fontWeight: 600 }}>
                     Deposit Amount $250
                   </span>
