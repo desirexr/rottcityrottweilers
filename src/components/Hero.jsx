@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import rottweiler from '../assets/hero-dog.png';
+import rottweiler from '../assets/hero-dog-new.png';
 
 const STATS = [
   { icon: '🏆', value: '10+', label: 'Years of Experience' },
@@ -27,9 +27,9 @@ export default function Hero() {
           flex: 1; position: relative; overflow: hidden;
         }
         .hero-dog {
-          position: absolute; top: 5rem; right: 0;
-          height: calc(100% - 5rem); width: 100%;
-          object-fit: cover; object-position: top center;
+          position: absolute; top: 0; right: 0;
+          height: 100%; width: 100%;
+          object-fit: contain; object-position: center bottom;
         }
         .hero-img-fade {
           position: absolute; inset: 0; pointer-events: none;
