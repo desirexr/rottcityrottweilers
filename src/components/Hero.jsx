@@ -29,11 +29,15 @@ export default function Hero() {
         .hero-dog {
           position: absolute; top: 0; right: 0;
           height: 100%; width: 100%;
-          object-fit: contain; object-position: center bottom;
+          object-fit: cover; object-position: center top;
         }
         .hero-img-fade {
           position: absolute; inset: 0; pointer-events: none;
-          background: linear-gradient(to right, var(--background) 0%, rgba(31,31,31,0.7) 10%, transparent 20%);
+          background:
+            linear-gradient(to right,  var(--background) 0%, rgba(10,10,10,0.85) 12%, transparent 30%),
+            linear-gradient(to left,   var(--background) 0%, rgba(10,10,10,0.6) 8%,  transparent 22%),
+            linear-gradient(to bottom, var(--background) 0%, rgba(10,10,10,0.5) 6%,  transparent 18%),
+            linear-gradient(to top,    var(--background) 0%, rgba(10,10,10,0.9) 14%, transparent 30%);
         }
         .hero-stats {
           display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem;
@@ -67,7 +71,11 @@ export default function Hero() {
             object-fit: contain;
           }
           .hero-img-fade {
-            background: linear-gradient(to top, var(--background) 0%, rgba(31,31,31,0.4) 15%, transparent 35%);
+            background:
+              linear-gradient(to top,    var(--background) 0%, rgba(10,10,10,0.9) 15%, transparent 35%),
+              linear-gradient(to bottom, var(--background) 0%, rgba(10,10,10,0.5) 8%,  transparent 20%),
+              linear-gradient(to left,   var(--background) 0%, rgba(10,10,10,0.5) 8%,  transparent 20%),
+              linear-gradient(to right,  var(--background) 0%, rgba(10,10,10,0.5) 8%,  transparent 20%);
           }
           .hero-stats {
             grid-template-columns: repeat(2,1fr);
@@ -94,16 +102,18 @@ export default function Hero() {
           .hero-dog-mobile-img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            object-position: center center;
-            transform: scale(1.5);
-            transform-origin: center center;
+            object-fit: cover;
+            object-position: center top;
           }
           .hero-mobile-img-fade {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background: linear-gradient(to top, var(--background) 0%, rgba(31,31,31,0.2) 10%, transparent 30%);
+            background:
+              linear-gradient(to top,    var(--background) 0%, rgba(10,10,10,0.9) 15%, transparent 35%),
+              linear-gradient(to bottom, var(--background) 0%, rgba(10,10,10,0.5) 8%,  transparent 20%),
+              linear-gradient(to left,   var(--background) 0%, rgba(10,10,10,0.5) 8%,  transparent 20%),
+              linear-gradient(to right,  var(--background) 0%, rgba(10,10,10,0.5) 8%,  transparent 20%);
           }
           .hero-image-col {
             display: none;
