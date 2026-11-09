@@ -399,10 +399,10 @@ export default function Puppies({ onOpenDeposit }) {
         {/* CTA Buttons */}
         <div className="pups-cta">
           <a href="#contact" className="pups-btn-primary">
-            🐾 Book a Puppy
+            Book a Puppy
           </a>
           <a href="#contact" className="pups-btn-outline">
-            📅 Upcoming Litters
+            Upcoming Litters
           </a>
         </div>
 
@@ -511,7 +511,7 @@ export default function Puppies({ onOpenDeposit }) {
               Contact us today to check current availability or join our upcoming waitlist.
             </p>
             <a href="#contact" className="current-card-btn">
-              🐾 Check Availability
+              Check Availability
             </a>
           </div>
         </div>

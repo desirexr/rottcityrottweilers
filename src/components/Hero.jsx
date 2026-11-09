@@ -272,7 +272,7 @@ export default function Hero({ onOpenDeposit }) {
 
         {/* CTA Buttons */}
         <div className="hero-cta-row">
-          <button className="hero-btn-deposit" onClick={onOpenDeposit}>💰 Deposit Now</button>
+          <button className="hero-btn-deposit" onClick={onOpenDeposit}>Deposit Now</button>
           <a href="#dogs" style={{
             fontFamily: '"Inter", sans-serif', fontWeight: 600, fontSize: '0.8rem',
             textTransform: 'uppercase', letterSpacing: '0.1em',

@@ -468,7 +468,7 @@ export default function DogProfile({ dog, onClose }) {
           {/* CTA */}
           <div className="dp-cta">
             <a href="#contact" className="dp-cta-primary" onClick={onClose}>
-              🐾 Inquire About {dog.name}
+              Inquire About {dog.name}
             </a>
             <button className="dp-cta-secondary" onClick={onClose}>
               ← View All Dogs

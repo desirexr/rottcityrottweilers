@@ -322,7 +322,7 @@ export default function StudServices() {
         {/* CTAs */}
         <div className="stud-cta">
           <a href="#contact" className="stud-btn-primary">
-            🐾 Inquire About Stud Services
+            Inquire About Stud Services
           </a>
           <a href="#dogs" className="stud-btn-outline">
             Meet Our Dogs

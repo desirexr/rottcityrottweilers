@@ -495,7 +495,7 @@ export default function Booking({ onOpenDeposit }) {
             Deposit Now ($250)
           </button>
           <a href="#contact" className="bk-cta-btn">
-            🐾 Begin Your Application
+            Begin Your Application
           </a>
         </div>
       </div>

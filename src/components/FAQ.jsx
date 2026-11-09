@@ -283,7 +283,7 @@ export default function FAQ() {
       <div className="faq-cta">
         <p>Still have questions? We're happy to help.</p>
         <a href="#contact" className="faq-cta-btn">
-          🐾 Contact Us
+          Contact Us
         </a>
       </div>
     </section>
