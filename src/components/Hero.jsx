@@ -179,11 +179,20 @@ export default function Hero({ onOpenDeposit }) {
           }
           .hero-cta-row {
             flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 4px;
           }
-          .hero-cta-row a {
+          .hero-cta-row::-webkit-scrollbar {
+            display: none;
+          }
+          .hero-cta-row a,
+          .hero-btn-deposit {
             font-size: 0.72rem !important;
             padding: 0.75rem 1.2rem !important;
             white-space: nowrap;
+            flex-shrink: 0;
           }
         }
         @media (max-width: 480px) {
