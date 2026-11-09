@@ -88,44 +88,49 @@ export default function Hero({ onOpenDeposit }) {
           display: flex;
           gap: 1rem;
           flex-wrap: wrap;
+          align-items: center;
         }
         .hero-price-pill {
-          display: inline-flex;
+          display: flex;
           align-items: center;
-          gap: 1rem;
-          background: rgba(195,152,67,0.1);
-          border: 1px solid rgba(195,152,67,0.35);
-          border-radius: 10px;
-          padding: 0.6rem 1.1rem;
-          margin-bottom: 1.2rem;
-          flex-wrap: wrap;
-          gap: 0.6rem 1.2rem;
+          gap: 0;
+          background: rgba(195,152,67,0.08);
+          border: 1px solid rgba(195,152,67,0.3);
+          border-radius: 12px;
+          padding: 0.75rem 1.4rem;
+          margin-bottom: 1.5rem;
+          width: fit-content;
         }
         .hero-price-item {
           display: flex;
           flex-direction: column;
-          gap: 0.1rem;
+          gap: 0.2rem;
+          padding: 0 1.1rem;
+        }
+        .hero-price-item:first-child {
+          padding-left: 0;
         }
         .hero-price-label {
           font-family: "Inter", sans-serif;
-          font-size: 0.58rem;
+          font-size: 0.6rem;
           font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 0.15em;
+          letter-spacing: 0.18em;
           color: rgba(255,255,255,0.4);
         }
         .hero-price-val {
           font-family: "Cinzel", serif;
-          font-size: 1rem;
+          font-size: 1.15rem;
           font-weight: 700;
           color: var(--primary);
           line-height: 1;
         }
         .hero-price-divider {
           width: 1px;
-          height: 28px;
-          background: rgba(195,152,67,0.3);
+          align-self: stretch;
+          background: rgba(195,152,67,0.25);
           flex-shrink: 0;
+          margin: 0;
         }
         .hero-btn-deposit {
           font-family: "Inter", sans-serif;
@@ -137,16 +142,17 @@ export default function Hero({ onOpenDeposit }) {
           border-radius: 9999px;
           border: none;
           cursor: pointer;
-          background: linear-gradient(135deg, var(--primary) 0%, #dcae5b 100%);
-          color: #000;
+          background: var(--primary);
+          color: #fff;
           text-decoration: none;
           transition: all 0.25s;
-          box-shadow: 0 4px 18px rgba(195,152,67,0.35);
+          box-shadow: 0 4px 18px rgba(0,0,0,0.25);
           white-space: nowrap;
         }
         .hero-btn-deposit:hover {
+          background: var(--primary-dark, #7a0000);
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(195,152,67,0.5);
+          box-shadow: 0 8px 28px rgba(0,0,0,0.3);
         }
         @media (max-width: 900px) {
           .hero-mobile-image {
@@ -193,6 +199,19 @@ export default function Hero({ onOpenDeposit }) {
             padding: 0.75rem 1.2rem !important;
             white-space: nowrap;
             flex-shrink: 0;
+          }
+          .hero-price-pill {
+            padding: 0.55rem 1rem;
+            margin-bottom: 1rem;
+          }
+          .hero-price-item {
+            padding: 0 0.75rem;
+          }
+          .hero-price-item:first-child {
+            padding-left: 0;
+          }
+          .hero-price-val {
+            font-size: 0.95rem;
           }
         }
         @media (max-width: 480px) {
