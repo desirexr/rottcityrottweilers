@@ -8,7 +8,7 @@ const STATS = [
   { icon: '❤️', value: '200+', label: 'Happy Families' },
 ];
 
-export default function Hero() {
+export default function Hero({ onOpenDeposit }) {
   return (
     <section id="home" className="hero-section">
       <style>{`
@@ -88,6 +88,65 @@ export default function Hero() {
           display: flex;
           gap: 1rem;
           flex-wrap: wrap;
+        }
+        .hero-price-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 1rem;
+          background: rgba(195,152,67,0.1);
+          border: 1px solid rgba(195,152,67,0.35);
+          border-radius: 10px;
+          padding: 0.6rem 1.1rem;
+          margin-bottom: 1.2rem;
+          flex-wrap: wrap;
+          gap: 0.6rem 1.2rem;
+        }
+        .hero-price-item {
+          display: flex;
+          flex-direction: column;
+          gap: 0.1rem;
+        }
+        .hero-price-label {
+          font-family: "Inter", sans-serif;
+          font-size: 0.58rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          color: rgba(255,255,255,0.4);
+        }
+        .hero-price-val {
+          font-family: "Cinzel", serif;
+          font-size: 1rem;
+          font-weight: 700;
+          color: var(--primary);
+          line-height: 1;
+        }
+        .hero-price-divider {
+          width: 1px;
+          height: 28px;
+          background: rgba(195,152,67,0.3);
+          flex-shrink: 0;
+        }
+        .hero-btn-deposit {
+          font-family: "Inter", sans-serif;
+          font-weight: 700;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          padding: 0.85rem 1.8rem;
+          border-radius: 9999px;
+          border: none;
+          cursor: pointer;
+          background: linear-gradient(135deg, var(--primary) 0%, #dcae5b 100%);
+          color: #000;
+          text-decoration: none;
+          transition: all 0.25s;
+          box-shadow: 0 4px 18px rgba(195,152,67,0.35);
+          white-space: nowrap;
+        }
+        .hero-btn-deposit:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 28px rgba(195,152,67,0.5);
         }
         @media (max-width: 900px) {
           .hero-mobile-image {
@@ -170,8 +229,22 @@ export default function Hero() {
           <div className="hero-mobile-img-fade" />
         </div>
 
+        {/* Price + Deposit pill */}
+        <div className="hero-price-pill">
+          <div className="hero-price-item">
+            <span className="hero-price-label">Starting Price</span>
+            <span className="hero-price-val">$1,750</span>
+          </div>
+          <div className="hero-price-divider" />
+          <div className="hero-price-item">
+            <span className="hero-price-label">Reserve With</span>
+            <span className="hero-price-val">$250 Deposit</span>
+          </div>
+        </div>
+
         {/* CTA Buttons */}
         <div className="hero-cta-row">
+          <button className="hero-btn-deposit" onClick={onOpenDeposit}>💰 Deposit Now</button>
           <a href="#dogs" style={{
             fontFamily: '"Inter", sans-serif', fontWeight: 600, fontSize: '0.8rem',
             textTransform: 'uppercase', letterSpacing: '0.1em',
